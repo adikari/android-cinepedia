@@ -81,6 +81,8 @@ dependencies {
 
   apt presentationDependencies.daggerCompiler
   compile presentationDependencies.dagger
+  compile presentationDependencies.daggerAndroid
+  // compile presentationDependencies.daggerAndroidSupport
   compile dataDependencies.okHttp
   compile dataDependencies.gson
   compile presentationDependencies.butterKnife
@@ -93,6 +95,7 @@ dependencies {
   compile presentationDependencies.constraintLayout
   compile presentationDependencies.picasso
 
+  provided presentationDependencies.daggerAndroidAnnotation
   provided presentationDependencies.javaxAnnotation
 
   androidTestCompile presentationTestDependencies.mockito
