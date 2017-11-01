@@ -1,19 +1,32 @@
-package au.com.subash.cinepedia.movie;
+package au.com.subash.cinepedia.movie.data;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
- * Representation of movie in domain layer
+ * Representation of movie in Data layer
  */
-public class Movie {
+public class MovieEntity {
 
-  private final int id;
+  @SerializedName("id")
+  private int id;
+
+  @SerializedName("title")
   private String title;
+
+  @SerializedName("tagline")
   private String tagline;
+
+  @SerializedName("status")
   private String status;
+
+  @SerializedName("poster_path")
   private String imageUrl;
+
+  @SerializedName("popularity")
   private int popularity;
 
-  public Movie(int id) {
-    this.id = id;
+  MovieEntity() {
+    // Empty
   }
 
   public int getId() {

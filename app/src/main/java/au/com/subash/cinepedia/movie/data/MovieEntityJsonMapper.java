@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.movie.mapper;
+package au.com.subash.cinepedia.movie.data;
 
 import com.google.gson.Gson;
 import javax.inject.Inject;
