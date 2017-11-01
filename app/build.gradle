@@ -81,8 +81,6 @@ dependencies {
 
   apt presentationDependencies.daggerCompiler
   compile presentationDependencies.dagger
-  compile presentationDependencies.daggerAndroid
-  // compile presentationDependencies.daggerAndroidSupport
   compile dataDependencies.okHttp
   compile dataDependencies.gson
   compile presentationDependencies.butterKnife
@@ -94,8 +92,8 @@ dependencies {
   compile presentationDependencies.appcompat
   compile presentationDependencies.constraintLayout
   compile presentationDependencies.picasso
+  compile presentationDependencies.androidSupport
 
-  provided presentationDependencies.daggerAndroidAnnotation
   provided presentationDependencies.javaxAnnotation
 
   androidTestCompile presentationTestDependencies.mockito
@@ -111,5 +109,4 @@ dependencies {
 
   //Development
   compile developmentDependencies.leakCanary
-  compile 'com.android.support:support-v4:25.3.1'
 }
