@@ -21,4 +21,10 @@ public interface BasePresenter {
    * (Activity or Fragment) onDestroy() method.
    */
   void destroy();
+
+  /**
+   * Method to initialize the presenter. It should be called in view's
+   * (Activity or Fragment) viewCreated() method
+   */
+  void initialize();
 }
