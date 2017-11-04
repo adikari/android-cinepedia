@@ -34,7 +34,7 @@
           android:textSize="@dimen/thumb_title" />
 
       <TextView
-          android:id="@+id/count"
+          android:id="@+id/popularity"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_below="@id/title"

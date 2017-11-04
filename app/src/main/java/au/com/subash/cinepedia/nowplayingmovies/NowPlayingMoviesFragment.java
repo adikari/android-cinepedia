@@ -2,6 +2,8 @@ package au.com.subash.cinepedia.nowplayingmovies;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import java.util.List;
@@ -17,6 +20,9 @@ import javax.inject.Inject;
 public class NowPlayingMoviesFragment extends BaseFragment implements NowPlayingContract.View {
 
   @Inject NowPlayingMoviesPresenter presenter;
+  @Inject CardListAdapter listAdapter;
+
+  @BindView(R.id.rv_now_playing_list) RecyclerView rv_now_playing_list;
 
   private Unbinder unbinder;
 
@@ -43,7 +49,10 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
     View view = inflater.inflate(R.layout.nowplaying_list_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
-    setupRecyclerView();
+
+    // TODO: create custom layout manager
+    rv_now_playing_list.setLayoutManager(new LinearLayoutManager(context()));
+    rv_now_playing_list.setAdapter(listAdapter);
 
     return view;
   }
@@ -53,7 +62,7 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
 
     presenter.setView(this);
 
-    if (null != savedInstanceState) {
+    if (null == savedInstanceState) {
       loadNowPlayingMovies();
     }
   }
@@ -83,7 +92,7 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
   }
 
   @Override public void renderNowPlayingMovies(List<MovieModel> movieModelList) {
-
+    listAdapter.setMovieModelList(movieModelList);
   }
 
   @Override public void viewMovieDetail(MovieModel movieModel) {
@@ -99,7 +108,7 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
   @Override public void hideRetry() { }
 
   @Override public void showError(String message) {
-
+    showToastMessage(message);
   }
 
   @Override public Context context() {
@@ -108,9 +117,5 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
 
   private void loadNowPlayingMovies() {
     presenter.initialize();
-  }
-
-  private void setupRecyclerView() {
-
   }
 }
