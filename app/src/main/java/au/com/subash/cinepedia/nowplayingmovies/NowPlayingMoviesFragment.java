@@ -21,8 +21,9 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
 
   @Inject NowPlayingMoviesPresenter presenter;
   @Inject CardListAdapter listAdapter;
+  @Inject CardListLayoutManager layoutManager;
 
-  @BindView(R.id.rv_now_playing_list) RecyclerView rv_now_playing_list;
+  @BindView(R.id.rv_now_playing_list) RecyclerView recyclerView;
 
   private Unbinder unbinder;
 
@@ -50,9 +51,8 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
 
     unbinder = ButterKnife.bind(this, view);
 
-    // TODO: create custom layout manager
-    rv_now_playing_list.setLayoutManager(new LinearLayoutManager(context()));
-    rv_now_playing_list.setAdapter(listAdapter);
+    recyclerView.setLayoutManager(layoutManager);
+    recyclerView.setAdapter(listAdapter);
 
     return view;
   }
