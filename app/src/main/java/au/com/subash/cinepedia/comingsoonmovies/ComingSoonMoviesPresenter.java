@@ -1,5 +1,6 @@
 package au.com.subash.cinepedia.comingsoonmovies;
 
+import au.com.subash.cinepedia.cardview.CardListContract;
 import au.com.subash.cinepedia.exception.DefaultErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorMessageFactory;
@@ -11,9 +12,9 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Presenter {
+public class ComingSoonMoviesPresenter implements CardListContract.Presenter {
 
-  private ComingSoonMoviesContract.View view;
+  private CardListContract.View view;
 
   private final UseCase getComingSoonMovies;
   private final MovieModelDataMapper mapper;
@@ -25,7 +26,7 @@ public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Prese
     this.mapper = mapper;
   }
 
-  public void setView(ComingSoonMoviesContract.View view) {
+  public void setView(CardListContract.View view) {
     this.view = view;
   }
 
@@ -49,7 +50,7 @@ public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Prese
   }
 
   private void showMoviesInView(List<Movie> movies) {
-    view.renderComingSoonMovies(mapper.transform(movies));
+    view.renderMovies(mapper.transform(movies));
   }
 
   private class GetComingSoonMoviesSubscriber extends DefaultSubscriber<List<Movie>> {
