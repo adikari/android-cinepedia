@@ -19,12 +19,14 @@ import javax.inject.Inject;
 
 public class FeaturedShowFragment extends BaseFragment implements FeaturedShowContract.View {
 
-  @Bind(R.id.cardFrag_Image) ImageView featuredImage;
-  @Bind(R.id.cardFrag_Title) TextView title;
-
   @Inject FeaturedShowPresenter presenter;
 
-  public FeaturedShowFragment() { }
+  @Bind(R.id.iv_featured_image) ImageView featuredImage;
+  @Bind(R.id.tv_featured_title) TextView title;
+
+  public FeaturedShowFragment() {
+    setRetainInstance(true);
+  }
 
   public static Fragment getInstance() {
     return new FeaturedShowFragment();
@@ -47,8 +49,12 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+
     presenter.setView(this);
-    presenter.initialize();
+
+    if (null == savedInstanceState) {
+      loadFeaturedShow();
+    }
   }
 
   @Override public void onDestroyView() {
@@ -80,7 +86,8 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
   }
 
   @Override public void renderFeaturedShow(MovieModel movieModel) {
-    // TODO: move picasso to image loader class
+    if (null == movieModel) { return; }
+
     Picasso.with(context())
         .load(movieModel.getImageUrl())
         .into(featuredImage);
@@ -89,7 +96,7 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
   }
 
   @Override public void viewFeaturedShow(MovieModel movieModel) {
-
+    // TODO
   }
 
   @Override public void showLoading() { }
@@ -100,9 +107,15 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
   @Override public void hideRetry() { }
 
-  @Override public void showError(String message) { }
+  @Override public void showError(String message) {
+    showToastMessage(message);
+  }
 
   @Override public Context context() {
     return getActivity().getApplicationContext();
+  }
+
+  private void loadFeaturedShow() {
+    presenter.initialize();
   }
 }

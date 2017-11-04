@@ -1,5 +1,6 @@
 package au.com.subash.cinepedia.featuredshow;
 
+import au.com.subash.cinepedia.exception.DefaultErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorMessageFactory;
 import au.com.subash.cinepedia.interactor.DefaultSubscriber;
@@ -66,6 +67,10 @@ public class FeaturedShowPresenter implements FeaturedShowContract.Presenter {
   }
 
   private class FeaturedShowSubscriber extends DefaultSubscriber<Movie> {
+    @Override public void onError(Throwable e) {
+      FeaturedShowPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
+    }
+
     @Override public void onNext(Movie movie) {
       FeaturedShowPresenter.this.showFeaturedMovieInView(movie);
     }
