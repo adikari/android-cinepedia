@@ -4,6 +4,7 @@ import android.os.Bundle;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowFragment;
 import au.com.subash.cinepedia.R;
+import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesFragment;
 import javax.inject.Inject;
 
 /**
@@ -21,7 +22,8 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
     initializeInjector();
 
     if (null == savedInstanceState) {
-      addFragment(R.id.fragmentContainer, FeaturedShowFragment.getInstance());
+      addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
+      addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragment.getInstance());
     }
 
   }
