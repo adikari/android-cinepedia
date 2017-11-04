@@ -19,6 +19,11 @@ public interface MovieRepository {
   Observable<List<Movie>> nowPlayingMovies();
 
   /**
+   * Get an {@link rx.Observable} which will emit a List of coming soon playing {@link Movie}.
+   */
+  Observable<List<Movie>> comingSoonMovies();
+
+  /**
    * Get an {@link rx.Observable} which will emit a featured show {@link Movie}
    *
    * @return {@link rx.Observable}

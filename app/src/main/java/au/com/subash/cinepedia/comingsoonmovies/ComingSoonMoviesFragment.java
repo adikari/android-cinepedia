@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.nowplayingmovies;
+package au.com.subash.cinepedia.comingsoonmovies;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -19,26 +19,18 @@ import butterknife.Unbinder;
 import java.util.List;
 import javax.inject.Inject;
 
-public class NowPlayingMoviesFragment extends BaseFragment implements NowPlayingContract.View {
+public class ComingSoonMoviesFragment extends BaseFragment implements ComingSoonMoviesContract.View {
 
-  @Inject NowPlayingMoviesPresenter presenter;
-  @Inject CardListAdapter listAdapter;
+  @Inject ComingSoonMoviesPresenter presenter;
   @Inject CardListLayoutManager layoutManager;
+  @Inject CardListAdapter cardListAdapter;
 
   @BindView(R.id.rv_card_list) RecyclerView recyclerView;
 
   private Unbinder unbinder;
 
-  public NowPlayingMoviesFragment() {
-    setRetainInstance(true);
-  }
-
-  public static NowPlayingMoviesFragment getInstance() {
-    return new NowPlayingMoviesFragment();
-  }
-
-  @Override public void onAttach(Context context) {
-    super.onAttach(context);
+  public static ComingSoonMoviesFragment getInstance() {
+    return new ComingSoonMoviesFragment();
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
@@ -48,15 +40,13 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-
     View view = inflater.inflate(R.layout.card_list_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
 
     recyclerView.setLayoutManager(layoutManager);
-    // TODO: change parameter variables
     recyclerView.addItemDecoration(new CardListDecoration(2, 16, true));
-    recyclerView.setAdapter(listAdapter);
+    recyclerView.setAdapter(cardListAdapter);
 
     return view;
   }
@@ -67,7 +57,7 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
     presenter.setView(this);
 
     if (null == savedInstanceState) {
-      loadNowPlayingMovies();
+      loadComingSoonMovies();
     }
   }
 
@@ -95,11 +85,11 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
     super.onDetach();
   }
 
-  @Override public void renderNowPlayingMovies(List<MovieModel> movieModelList) {
-    listAdapter.setMovieModelList(movieModelList);
+  @Override public void renderComingSoonMovies(List<MovieModel> movieModelList) {
+
   }
 
-  @Override public void viewMovieDetail(MovieModel movieModel) {
+  @Override public void viewMovie(MovieModel movieModel) {
 
   }
 
@@ -119,7 +109,7 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
     return getActivity().getApplicationContext();
   }
 
-  private void loadNowPlayingMovies() {
+  private void loadComingSoonMovies() {
     presenter.initialize();
   }
 }

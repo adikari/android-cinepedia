@@ -25,6 +25,10 @@ public class MovieDataRepository implements MovieRepository {
     return movies();
   }
 
+  @Override public Observable<List<Movie>> comingSoonMovies() {
+    return movies();
+  }
+
   @Override public Observable<Movie> featuredShow() {
     return movies().map(list -> list.get(0));
   }

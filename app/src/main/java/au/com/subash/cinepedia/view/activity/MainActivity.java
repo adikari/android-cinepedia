@@ -24,6 +24,7 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
     if (null == savedInstanceState) {
       addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
       addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragment.getInstance());
+      addFragment(R.id.fl_coming_soon_movies, NowPlayingMoviesFragment.getInstance());
     }
 
   }

@@ -2,6 +2,7 @@ package au.com.subash.cinepedia.view.activity;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
+import au.com.subash.cinepedia.comingsoonmovies.GetComingSoonMovies;
 import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.featuredshow.GetFeaturedShow;
 import au.com.subash.cinepedia.interactor.UseCase;
@@ -22,6 +23,11 @@ class MainActivityModule {
   @Provides @PerActivity @Named("getFeaturedShow") UseCase
   provideGetFeaturedShowUseCase(GetFeaturedShow getFeaturedShowUseCase) {
     return getFeaturedShowUseCase;
+  }
+
+  @Provides @PerActivity @Named("getComingSoonMovies") UseCase
+  provideGetComingSoonMoviesUseCase(GetComingSoonMovies getComingSoonMovies) {
+    return getComingSoonMovies;
   }
 
   @Provides @PerActivity GridLayoutManager
