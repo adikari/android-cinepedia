@@ -2,7 +2,6 @@ package au.com.subash.cinepedia.nowplayingmovies;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,6 +51,8 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
     unbinder = ButterKnife.bind(this, view);
 
     recyclerView.setLayoutManager(layoutManager);
+    // TODO: change parameter variables
+    recyclerView.addItemDecoration(new CardListDecoration(2, 16, true));
     recyclerView.setAdapter(listAdapter);
 
     return view;
