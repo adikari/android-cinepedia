@@ -19,6 +19,7 @@ ext {
   javaxAnnotationVersion = '1.0'
   javaxInjectVersion = '1'
   gsonVersion = '2.3'
+  rxAdapterVersion = '2.3.0'
   okHttpVersion = '3.9.0'
   picassoVersion = '2.5.2'
   constraintLayoutVersion = '1.0.2'
@@ -74,6 +75,7 @@ ext {
 
   dataDependencies = [
       retrofit:           "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+      rxAdapter:          "com.squareup.retrofit2:adapter-rxjava2:${rxAdapterVersion}",
       gsonConverter:      "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
       okHttp:             "com.squareup.okhttp3:okhttp:${okHttpVersion}",
       gson:               "com.google.code.gson:gson:${gsonVersion}",

@@ -85,6 +85,7 @@ dependencies {
   compile dataDependencies.okHttp
   compile dataDependencies.retrofit
   compile dataDependencies.gsonConverter
+  compile dataDependencies.rxAdapter
   compile dataDependencies.gson
   compile presentationDependencies.butterKnife
   compile presentationDependencies.recyclerView
