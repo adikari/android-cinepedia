@@ -3,6 +3,8 @@ package au.com.subash.cinepedia.core.di.components;
 import android.content.Context;
 import au.com.subash.cinepedia.core.di.modules.ApplicationModule;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
+import au.com.subash.cinepedia.movie.data.MovieDataStore;
+import au.com.subash.cinepedia.movie.domain.MovieRepository;
 import au.com.subash.cinepedia.view.activity.BaseActivity;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import dagger.Component;
@@ -20,4 +22,6 @@ public interface ApplicationComponent {
   Context context();
   ThreadExecutor threadExecutor();
   PostExecutionThread postExecutionThread();
+  MovieRepository movieRepository();
+  MovieDataStore movieDataStore();
 }

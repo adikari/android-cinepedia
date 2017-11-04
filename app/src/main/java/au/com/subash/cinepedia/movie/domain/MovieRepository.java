@@ -19,6 +19,13 @@ public interface MovieRepository {
   Observable<List<Movie>> nowPlayingMovies();
 
   /**
+   * Get an {@link rx.Observable} which will emit a featured show {@link Movie}
+   *
+   * @return {@link rx.Observable}
+   */
+  Observable<Movie> featuredShow();
+
+  /**
    * Get an {@link rx.Observable} which will emit a {@link Movie}.
    *
    * @param id The movie id used to retrieve movie data.
