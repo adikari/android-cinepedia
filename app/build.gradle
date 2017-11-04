@@ -80,6 +80,7 @@ dependencies {
   def developmentDependencies = rootProject.ext.developmentDependencies
 
   apt presentationDependencies.daggerCompiler
+  apt presentationDependencies.butterKnifeAnnotation
   compile presentationDependencies.dagger
   compile dataDependencies.okHttp
   compile dataDependencies.gson

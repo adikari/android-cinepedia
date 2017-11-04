@@ -12,8 +12,9 @@ import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
@@ -21,8 +22,10 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
   @Inject FeaturedShowPresenter presenter;
 
-  @Bind(R.id.iv_featured_image) ImageView featuredImage;
-  @Bind(R.id.tv_featured_title) TextView title;
+  @BindView(R.id.iv_featured_image) ImageView featuredImage;
+  @BindView(R.id.tv_featured_title) TextView title;
+
+  private Unbinder unbinder;
 
   public FeaturedShowFragment() {
     setRetainInstance(true);
@@ -42,7 +45,8 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
     View view = inflater.inflate(R.layout.featured_frag, container, false);
 
-    ButterKnife.bind(view);
+    ButterKnife.setDebug(true);
+    unbinder = ButterKnife.bind(this, view);
 
     return view;
   }
@@ -59,7 +63,7 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
   @Override public void onDestroyView() {
     super.onDestroyView();
-    ButterKnife.unbind(this);
+    unbinder.unbind();
   }
 
   @Override public void onResume() {

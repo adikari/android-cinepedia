@@ -4,7 +4,6 @@ import android.os.Bundle;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowFragment;
 import au.com.subash.cinepedia.R;
-import butterknife.ButterKnife;
 import javax.inject.Inject;
 
 /**
@@ -25,7 +24,6 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
       addFragment(R.id.fragmentContainer, FeaturedShowFragment.getInstance());
     }
 
-    ButterKnife.bind(this);
   }
 
   private void initializeInjector() {
