@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.nowplayingmovies;
+package au.com.subash.cinepedia.cardview;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -66,7 +66,6 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
     @BindView(R.id.title) TextView title;
     @BindView(R.id.popularity) TextView popularity;
     @BindView(R.id.thumbnail) ImageView thumbnail;
-    @BindView(R.id.overflow) ImageView overflow;
 
     ViewHolder(View itemView) {
       super(itemView);

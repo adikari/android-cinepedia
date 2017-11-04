@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.nowplayingmovies;
+package au.com.subash.cinepedia.cardview;
 
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 /**
  * RecyclerView item decoration - give equal margin around grid item
  */
-class CardListDecoration extends RecyclerView.ItemDecoration {
+public class CardListDecoration extends RecyclerView.ItemDecoration {
 
   private int spanCount;
   private int spacing;
