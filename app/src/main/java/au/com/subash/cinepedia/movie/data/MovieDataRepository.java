@@ -30,7 +30,7 @@ public class MovieDataRepository implements MovieRepository {
   }
 
   @Override public Observable<Movie> featuredShow() {
-    return movies().map(list -> list.get(0));
+    return dataStore.getFeaturedShow().map(mapper::transform);
   }
 
   @Override public Observable<Movie> movie(int id) {

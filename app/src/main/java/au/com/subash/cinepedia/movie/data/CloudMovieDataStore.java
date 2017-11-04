@@ -33,6 +33,10 @@ public class CloudMovieDataStore implements MovieDataStore {
     return Observable.just(movieEntities);
   }
 
+  @Override public Observable<MovieEntity> getFeaturedShow() {
+    return Observable.just(movies().get(0));
+  }
+
   @Override public Observable<MovieEntity> movieEntityDetails(int id) {
     MovieEntity movieEntity = new MovieEntity();
 
