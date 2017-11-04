@@ -8,6 +8,7 @@ public class CardListLayoutManager extends GridLayoutManager {
 
   @Inject
   public CardListLayoutManager(Context context) {
+    // TODO: set span count this configurable
     super(context, 2);
   }
 }

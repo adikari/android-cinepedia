@@ -31,6 +31,7 @@ public class MovieModelDataMapper {
       movieModel.setTitle(movie.getTitle());
       movieModel.setTagline(movie.getTagline());
       movieModel.setImageUrl(movie.getImageUrl());
+      movieModel.setPopularity(movie.getPopularity());
     }
 
     return movieModel;

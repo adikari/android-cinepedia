@@ -37,10 +37,8 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     final MovieModel movieModel = movieModelList.get(position);
 
-    String popularity = Integer.toString(movieModel.getPopularity());
-
     holder.title.setText(movieModel.getTitle());
-    holder.popularity.setText(popularity);
+    holder.popularity.setText(String.valueOf(movieModel.getPopularity()));
 
     // TODO: use image loader instead of picasso
     Picasso
