@@ -6,12 +6,12 @@ import au.com.subash.cinepedia.moviecardlist.MovieCardListFragment;
 import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import javax.inject.Inject;
 
-public class ComingSoonMoviesFragmentMovie extends MovieCardListFragment implements MovieCardListContract.View {
+public class ComingSoonMoviesFragment extends MovieCardListFragment implements MovieCardListContract.View {
 
   @Inject ComingSoonMoviesPresenter presenter;
 
-  public static ComingSoonMoviesFragmentMovie getInstance() {
-    return new ComingSoonMoviesFragmentMovie();
+  public static ComingSoonMoviesFragment getInstance() {
+    return new ComingSoonMoviesFragment();
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
