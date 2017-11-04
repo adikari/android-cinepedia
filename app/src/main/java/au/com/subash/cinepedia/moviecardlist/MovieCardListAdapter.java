@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.cardview;
+package au.com.subash.cinepedia.moviecardlist;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import javax.inject.Inject;
 
-public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHolder> {
+public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdapter.ViewHolder> {
 
   private final LayoutInflater inflater;
   private final Context context;
@@ -23,7 +23,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.ViewHo
   private List<MovieModel> movieModelList;
 
   @Inject
-  public CardListAdapter(Context context) {
+  public MovieCardListAdapter(Context context) {
     this.context = context;
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }

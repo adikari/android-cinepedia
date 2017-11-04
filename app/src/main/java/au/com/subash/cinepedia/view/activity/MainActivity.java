@@ -1,11 +1,11 @@
 package au.com.subash.cinepedia.view.activity;
 
 import android.os.Bundle;
-import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesFragment;
+import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesFragmentMovie;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowFragment;
 import au.com.subash.cinepedia.R;
-import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesFragment;
+import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesFragmentMovie;
 import javax.inject.Inject;
 
 /**
@@ -24,8 +24,8 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
 
     if (null == savedInstanceState) {
       addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
-      addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragment.getInstance());
-      addFragment(R.id.fl_coming_soon_movies, ComingSoonMoviesFragment.getInstance());
+      addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragmentMovie.getInstance());
+      addFragment(R.id.fl_coming_soon_movies, ComingSoonMoviesFragmentMovie.getInstance());
     }
 
   }

@@ -6,7 +6,7 @@ import au.com.subash.cinepedia.comingsoonmovies.GetComingSoonMovies;
 import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.featuredshow.GetFeaturedShow;
 import au.com.subash.cinepedia.interactor.UseCase;
-import au.com.subash.cinepedia.cardview.CardListLayoutManager;
+import au.com.subash.cinepedia.moviecardlist.MovieCardListLayoutManager;
 import au.com.subash.cinepedia.nowplayingmovies.GetNowPlayingMovies;
 import dagger.Module;
 import dagger.Provides;
@@ -32,6 +32,6 @@ class MainActivityModule {
 
   @Provides @PerActivity GridLayoutManager
   providedCardListLayoutManager(Context context) {
-    return new CardListLayoutManager(context);
+    return new MovieCardListLayoutManager(context);
   }
 }

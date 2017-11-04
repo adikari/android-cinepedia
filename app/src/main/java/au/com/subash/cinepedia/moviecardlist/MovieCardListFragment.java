@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.cardview;
+package au.com.subash.cinepedia.moviecardlist;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import butterknife.Unbinder;
 import java.util.List;
 import javax.inject.Inject;
 
-public abstract class CardListFragment extends BaseFragment implements CardListContract.View {
+public abstract class MovieCardListFragment extends BaseFragment implements MovieCardListContract.View {
 
-  @Inject CardListLayoutManager layoutManager;
-  @Inject CardListAdapter cardListAdapter;
+  @Inject MovieCardListLayoutManager layoutManager;
+  @Inject MovieCardListAdapter movieCardListAdapter;
 
   @BindView(R.id.rv_card_list) RecyclerView recyclerView;
 
@@ -32,8 +32,8 @@ public abstract class CardListFragment extends BaseFragment implements CardListC
     unbinder = ButterKnife.bind(this, view);
 
     recyclerView.setLayoutManager(layoutManager);
-    recyclerView.addItemDecoration(new CardListDecoration(2, 16, true));
-    recyclerView.setAdapter(cardListAdapter);
+    recyclerView.addItemDecoration(new MovieCardListDecoration(2, 16, true));
+    recyclerView.setAdapter(movieCardListAdapter);
 
     return view;
   }
@@ -73,7 +73,7 @@ public abstract class CardListFragment extends BaseFragment implements CardListC
   }
 
   @Override public void renderMovies(List<MovieModel> movieModelList) {
-    cardListAdapter.setMovieModelList(movieModelList);
+    movieCardListAdapter.setMovieModelList(movieModelList);
   }
 
   @Override public void viewMovieDetail(MovieModel movieModel) {

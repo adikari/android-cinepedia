@@ -1,13 +1,13 @@
-package au.com.subash.cinepedia.cardview;
+package au.com.subash.cinepedia.moviecardlist;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import javax.inject.Inject;
 
-public class CardListLayoutManager extends GridLayoutManager {
+public class MovieCardListLayoutManager extends GridLayoutManager {
 
   @Inject
-  public CardListLayoutManager(Context context) {
+  public MovieCardListLayoutManager(Context context) {
     // TODO: set span count this configurable
     super(context, 2);
   }

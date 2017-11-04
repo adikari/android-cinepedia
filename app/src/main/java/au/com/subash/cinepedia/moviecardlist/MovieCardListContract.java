@@ -1,11 +1,11 @@
-package au.com.subash.cinepedia.cardview;
+package au.com.subash.cinepedia.moviecardlist;
 
 import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.presenter.BasePresenter;
 import au.com.subash.cinepedia.view.component.LoadDataView;
 import java.util.List;
 
-public interface CardListContract {
+public interface MovieCardListContract {
 
   interface View extends LoadDataView {
     void renderMovies(List<MovieModel> movieModelList);
@@ -14,6 +14,6 @@ public interface CardListContract {
   }
 
   interface Presenter extends BasePresenter {
-    void setView(CardListContract.View view);
+    void setView(MovieCardListContract.View view);
   }
 }
