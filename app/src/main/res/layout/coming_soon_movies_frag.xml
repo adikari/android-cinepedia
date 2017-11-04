@@ -6,7 +6,7 @@
     >
 
   <android.support.v7.widget.RecyclerView
-      android:id="@+id/rv_card_list"
+      android:id="@+id/rv_coming_soon_list"
       android:scrollbars="vertical"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

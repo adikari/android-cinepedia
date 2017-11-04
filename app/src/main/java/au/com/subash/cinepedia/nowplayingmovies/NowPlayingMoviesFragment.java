@@ -25,7 +25,7 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
   @Inject CardListAdapter listAdapter;
   @Inject CardListLayoutManager layoutManager;
 
-  @BindView(R.id.rv_card_list) RecyclerView recyclerView;
+  @BindView(R.id.rv_now_playing_list) RecyclerView recyclerView;
 
   private Unbinder unbinder;
 
@@ -49,7 +49,7 @@ public class NowPlayingMoviesFragment extends BaseFragment implements NowPlaying
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
 
-    View view = inflater.inflate(R.layout.card_list_frag, container, false);
+    View view = inflater.inflate(R.layout.now_playing_movies_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
 

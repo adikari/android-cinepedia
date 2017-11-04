@@ -58,7 +58,7 @@ public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Prese
     }
 
     @Override public void onNext(List<Movie> movies) {
-      super.onNext(movies);
+      ComingSoonMoviesPresenter.this.showMoviesInView(movies);
     }
   }
 }

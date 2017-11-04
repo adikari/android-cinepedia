@@ -25,7 +25,7 @@ public class ComingSoonMoviesFragment extends BaseFragment implements ComingSoon
   @Inject CardListLayoutManager layoutManager;
   @Inject CardListAdapter cardListAdapter;
 
-  @BindView(R.id.rv_card_list) RecyclerView recyclerView;
+  @BindView(R.id.rv_coming_soon_list) RecyclerView recyclerView;
 
   private Unbinder unbinder;
 
@@ -40,7 +40,7 @@ public class ComingSoonMoviesFragment extends BaseFragment implements ComingSoon
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.card_list_frag, container, false);
+    View view = inflater.inflate(R.layout.coming_soon_movies_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
 
@@ -86,7 +86,7 @@ public class ComingSoonMoviesFragment extends BaseFragment implements ComingSoon
   }
 
   @Override public void renderComingSoonMovies(List<MovieModel> movieModelList) {
-
+    cardListAdapter.setMovieModelList(movieModelList);
   }
 
   @Override public void viewMovie(MovieModel movieModel) {

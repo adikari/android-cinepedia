@@ -16,6 +16,11 @@ public interface MovieDataStore {
   Observable<List<MovieEntity>> nowPlayingMovieEntityList();
 
   /**
+   * Get an {@link rx.Observable} which will emit a List of coming soon {@link MovieEntity}
+   */
+  Observable<List<MovieEntity>> comingSoonMovieEntityList();
+
+  /**
    * Get an {@link rx.Observable} which will emit a {@link MovieEntity} by its id.
    *
    * @param id The id to retrieve user data.

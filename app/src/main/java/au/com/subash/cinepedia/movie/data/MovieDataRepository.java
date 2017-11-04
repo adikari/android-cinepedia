@@ -22,11 +22,11 @@ public class MovieDataRepository implements MovieRepository {
   }
 
   @Override public Observable<List<Movie>> nowPlayingMovies() {
-    return movies();
+    return dataStore.nowPlayingMovieEntityList().map(mapper::transform);
   }
 
   @Override public Observable<List<Movie>> comingSoonMovies() {
-    return movies();
+    return dataStore.comingSoonMovieEntityList().map(mapper::transform);
   }
 
   @Override public Observable<Movie> featuredShow() {
