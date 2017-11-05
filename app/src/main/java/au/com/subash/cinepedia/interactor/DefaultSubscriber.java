@@ -7,6 +7,10 @@ import io.reactivex.subscribers.DisposableSubscriber;
  */
 public class DefaultSubscriber<T> extends DisposableSubscriber<T> {
 
+  @Override public void onStart() {
+    // no-op by default.
+  }
+
   @Override public void onError(Throwable e) {
     // no-op by default.
   }

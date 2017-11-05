@@ -4,11 +4,13 @@ import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
 import au.com.subash.cinepedia.interactor.UseCase;
 import io.reactivex.Observable;
+import javax.inject.Inject;
 
 public class GetMovieDetail extends UseCase {
 
-  private MovieDetailRepository movieDetailRepository;
+  private final MovieDetailRepository movieDetailRepository;
 
+  @Inject
   protected GetMovieDetail(MovieDetailRepository movieDetailRepository, ThreadExecutor threadExecutor,
       PostExecutionThread postExecutionThread) {
     super(threadExecutor, postExecutionThread);
@@ -16,6 +18,6 @@ public class GetMovieDetail extends UseCase {
   }
 
   @Override protected Observable buildUseCaseObservable() {
-    return null;
+    return movieDetailRepository.movieDetail();
   }
 }

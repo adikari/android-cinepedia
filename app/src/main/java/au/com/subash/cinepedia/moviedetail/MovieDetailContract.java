@@ -5,7 +5,7 @@ import au.com.subash.cinepedia.view.component.LoadDataView;
 
 interface MovieDetailContract {
   interface View extends LoadDataView {
-
+    void renderMovieDetail(MovieDetailModel movieDetailModel);
   }
 
   interface Presenter extends BasePresenter {
