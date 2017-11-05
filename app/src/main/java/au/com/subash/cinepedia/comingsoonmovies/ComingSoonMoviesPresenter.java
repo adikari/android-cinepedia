@@ -44,7 +44,7 @@ public class ComingSoonMoviesPresenter implements MovieCardListContract.Presente
   }
 
   private void showErrorMessage(ErrorBundle errorBundle) {
-    String message = ErrorMessageFactory.create(view.context(), (Exception) errorBundle);
+    String message = ErrorMessageFactory.create(view.context(), errorBundle.getException());
 
     view.showError(message);
   }
