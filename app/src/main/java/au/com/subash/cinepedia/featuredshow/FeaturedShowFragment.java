@@ -15,6 +15,7 @@ import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
@@ -27,6 +28,7 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
   @BindView(R.id.tv_featured_title) TextView title;
 
   private Unbinder unbinder;
+  private FeaturedShowContract.Listener listener;
 
   public FeaturedShowFragment() {
     setRetainInstance(true);
@@ -83,10 +85,15 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
   @Override public void onAttach(Context context) {
     super.onAttach(context);
+
+    if (context instanceof FeaturedShowContract.Listener) {
+      listener = (FeaturedShowContract.Listener) context;
+    }
   }
 
   @Override public void onDetach() {
     super.onDetach();
+    listener = null;
   }
 
   @Override public void renderFeaturedShow(MovieModel movieModel) {
@@ -99,10 +106,14 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
         .into(featuredImage);
 
     title.setText(movieModel.getTitle());
+
+    featuredImage.setOnClickListener(v -> presenter.onMovieClicked(movieModel));
   }
 
   @Override public void viewFeaturedShow(MovieModel movieModel) {
-    // TODO
+    if (null != listener) {
+      listener.onMovieClicked(movieModel);
+    }
   }
 
   @Override public void showLoading() { }

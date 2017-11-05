@@ -14,5 +14,10 @@ public interface FeaturedShowContract {
   }
 
   interface Presenter extends BasePresenter {
+
+  }
+
+  interface Listener {
+    void onFeaturedMovieClicked(MovieModel movieModel);
   }
 }

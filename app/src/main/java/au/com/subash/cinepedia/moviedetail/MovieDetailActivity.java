@@ -50,8 +50,6 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
   }
 
   private void initializeInjector() {
-    int movieId = 550;
-
     movieDetailComponent = DaggerMovieDetailComponent.builder()
         .applicationComponent(getApplicationComponent())
         .activityModule(getActivityModule())

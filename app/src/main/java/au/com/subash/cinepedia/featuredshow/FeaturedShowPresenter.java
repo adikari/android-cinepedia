@@ -5,6 +5,7 @@ import au.com.subash.cinepedia.exception.ErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorMessageFactory;
 import au.com.subash.cinepedia.interactor.DefaultSubscriber;
 import au.com.subash.cinepedia.interactor.UseCase;
+import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.movie.MovieModelDataMapper;
 import au.com.subash.cinepedia.movie.domain.Movie;
 import javax.inject.Inject;
@@ -64,6 +65,10 @@ public class FeaturedShowPresenter implements FeaturedShowContract.Presenter {
   private void showErrorMessage(ErrorBundle errorBundle) {
     String errorMessage = ErrorMessageFactory.create(view.context(), errorBundle.getException());
     view.showError(errorMessage);
+  }
+
+  void onMovieClicked(MovieModel movieModel) {
+    view.viewFeaturedShow(movieModel);
   }
 
   private class FeaturedShowSubscriber extends DefaultSubscriber<Movie> {
