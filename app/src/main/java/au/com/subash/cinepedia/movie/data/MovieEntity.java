@@ -15,8 +15,8 @@ public class MovieEntity {
   @SerializedName("title")
   private String title;
 
-  @SerializedName("tagline")
-  private String tagline;
+  @SerializedName("overview")
+  private String overview;
 
   @SerializedName("status")
   private String status;
@@ -44,12 +44,12 @@ public class MovieEntity {
     this.title = title;
   }
 
-  public String getTagline() {
-    return tagline;
+  public String getOverview() {
+    return overview;
   }
 
-  public void setTagline(String tagline) {
-    this.tagline = tagline;
+  public void setOverview(String overview) {
+    this.overview = overview;
   }
 
   public String getStatus() {

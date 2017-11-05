@@ -27,7 +27,7 @@ class MovieEntityDataMapper {
     if (null != movieEntity) {
       movie = new Movie(movieEntity.getId());
       movie.setTitle(movieEntity.getTitle());
-      movie.setTagline(movieEntity.getTagline());
+      movie.setOverview(movieEntity.getOverview());
       movie.setImageUrl(movieEntity.getImageUrl());
       movie.setPopularity(movieEntity.getPopularity());
       movie.setRating(movieEntity.getRating());

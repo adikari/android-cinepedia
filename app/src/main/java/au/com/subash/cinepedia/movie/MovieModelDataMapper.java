@@ -28,7 +28,7 @@ public class MovieModelDataMapper {
     if (null != movie) {
       movieModel = new MovieModel(movie.getId());
       movieModel.setTitle(movie.getTitle());
-      movieModel.setTagline(movie.getTagline());
+      movieModel.setOverview(movie.getOverview());
       movieModel.setImageUrl(movie.getImageUrl());
       movieModel.setPopularity(movie.getPopularity());
       movieModel.setRating(movie.getRating());

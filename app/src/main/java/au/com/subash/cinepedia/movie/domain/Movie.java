@@ -7,7 +7,7 @@ public class Movie {
 
   private final int id;
   private String title;
-  private String tagline;
+  private String overview;
   private String status;
   private String imageUrl;
   private double popularity;
@@ -29,12 +29,12 @@ public class Movie {
     this.title = title;
   }
 
-  public String getTagline() {
-    return tagline;
+  public String getOverview() {
+    return overview;
   }
 
-  public void setTagline(String tagline) {
-    this.tagline = tagline;
+  public void setOverview(String overview) {
+    this.overview = overview;
   }
 
   public String getStatus() {
