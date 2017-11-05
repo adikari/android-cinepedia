@@ -7,11 +7,11 @@ import retrofit2.Retrofit;
 
 public class TmdDataRepository implements MovieDataStore {
 
-  private MovieService movieService;
+  private TmdMovieService tmdMovieService;
 
   @Inject
   public TmdDataRepository(Retrofit retrofit) {
-    movieService = retrofit.create(MovieService.class);
+    tmdMovieService = retrofit.create(TmdMovieService.class);
   }
 
   @Override public Observable<List<MovieEntity>> movieEntityList() {
@@ -27,7 +27,7 @@ public class TmdDataRepository implements MovieDataStore {
   }
 
   @Override public Observable<MovieEntity> getFeaturedShow() {
-    Observable<MovieResponse> response = movieService.getFeaturedShow();
+    Observable<TmdMovieResponse> response = tmdMovieService.getFeaturedShow();
 
     return null;
   }

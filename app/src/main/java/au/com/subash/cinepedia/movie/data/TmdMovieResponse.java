@@ -3,7 +3,7 @@ package au.com.subash.cinepedia.movie.data;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
-public class MovieResponse {
+public class TmdMovieResponse {
 
   @SerializedName("page")
   private int page;
@@ -17,7 +17,7 @@ public class MovieResponse {
   @SerializedName("total_results")
   private int totalResults;
 
-  public MovieResponse() { }
+  public TmdMovieResponse() { }
 
   public int getPage() {
     return page;
