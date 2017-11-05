@@ -5,6 +5,7 @@ import au.com.subash.cinepedia.core.di.modules.ApplicationModule;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
 import au.com.subash.cinepedia.movie.data.MovieDataStore;
 import au.com.subash.cinepedia.movie.domain.MovieRepository;
+import au.com.subash.cinepedia.moviedetail.MovieDetailRepository;
 import au.com.subash.cinepedia.view.activity.BaseActivity;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import com.google.gson.Gson;
@@ -27,4 +28,5 @@ public interface ApplicationComponent {
   ThreadExecutor threadExecutor();
   PostExecutionThread postExecutionThread();
   MovieRepository movieRepository();
+  MovieDetailRepository movieDetailRepository();
 }
