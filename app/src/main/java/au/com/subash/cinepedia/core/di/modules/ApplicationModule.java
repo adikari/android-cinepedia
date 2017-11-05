@@ -19,6 +19,7 @@ import okhttp3.Cache;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -68,7 +69,7 @@ public class ApplicationModule {
   }
 
   @Provides @Singleton OkHttpClient provideOkHttpClient(Cache cache) {
-    Interceptor interceptor = chain -> {
+    Interceptor requestInterceptor = chain -> {
        Request request = chain.request().newBuilder()
            .addHeader("api_key", API_KEY)
            .addHeader("Content-Type", "application/json; charset=utf-8")
@@ -77,11 +78,15 @@ public class ApplicationModule {
        return chain.proceed(request);
     };
 
+    HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+    loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+
     return new OkHttpClient.Builder()
        .readTimeout(10000, TimeUnit.MILLISECONDS)
        .connectTimeout(15000, TimeUnit.MILLISECONDS)
        .cache(cache)
-       .addInterceptor(interceptor)
+       .addInterceptor(requestInterceptor)
+       .addInterceptor(loggingInterceptor)
        .build();
   }
 

@@ -84,6 +84,7 @@ dependencies {
   compile presentationDependencies.dagger
   compile dataDependencies.okHttp
   compile dataDependencies.retrofit
+  compile dataDependencies.loggingInterceptor
   compile dataDependencies.gsonConverter
   compile dataDependencies.rxAdapter
   compile dataDependencies.gson
