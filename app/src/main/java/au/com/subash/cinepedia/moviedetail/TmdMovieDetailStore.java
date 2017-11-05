@@ -14,7 +14,6 @@ public class TmdMovieDetailStore implements MovieDetailDataStore {
   }
 
   @Override public Observable<MovieDetailEntity> movieDetailEntity() {
-    return null;
-    // return serivce.movieDetail().map();
+    return serivce.movieDetail(1);
   }
 }
