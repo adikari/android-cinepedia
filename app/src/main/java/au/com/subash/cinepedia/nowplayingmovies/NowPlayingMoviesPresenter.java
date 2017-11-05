@@ -1,5 +1,6 @@
 package au.com.subash.cinepedia.nowplayingmovies;
 
+import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.moviecardlist.MovieCardListContract;
 import au.com.subash.cinepedia.exception.DefaultErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorBundle;
@@ -28,6 +29,10 @@ public class NowPlayingMoviesPresenter implements MovieCardListContract.Presente
 
   public void setView(MovieCardListContract.View view) {
     this.view = view;
+  }
+
+  @Override public void onMovieClicked(MovieModel movieModel) {
+    view.viewMovieDetail(movieModel);
   }
 
   @Override public void resume() { }

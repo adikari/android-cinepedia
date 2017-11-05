@@ -15,5 +15,10 @@ public interface MovieCardListContract {
 
   interface Presenter extends BasePresenter {
     void setView(MovieCardListContract.View view);
+    void onMovieClicked(MovieModel movieModel);
+  }
+
+  interface Listener {
+    void onMovieClicked(MovieModel movieModel);
   }
 }

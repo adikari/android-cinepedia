@@ -23,6 +23,12 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
 
   private List<MovieModel> movieModelList;
 
+  public interface ItemClickListener {
+    void onMovieClicked(MovieModel movieModel);
+  }
+
+  private ItemClickListener listener;
+
   @Inject
   public MovieCardListAdapter(Context context) {
     this.context = context;
@@ -48,6 +54,12 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
         .with(context)
         .load(imageUrl)
         .into(holder.thumbnail);
+
+    holder.itemView.setOnClickListener(v -> {
+      if (null != listener) {
+        listener.onMovieClicked(movieModel);
+      }
+    });
   }
 
   @Override public int getItemCount() {
@@ -58,9 +70,17 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
     return position;
   }
 
-  public void setMovieModelList(List<MovieModel> movieModelList) {
+  void setMovieModelList(List<MovieModel> movieModelList) {
+    if (null == movieModelList) {
+      throw new IllegalArgumentException("Movie list cannot be empty");
+    }
+
     this.movieModelList = movieModelList;
     notifyDataSetChanged();
+  }
+
+  void setItemClickListener(ItemClickListener listener) {
+    this.listener = listener;
   }
 
   class ViewHolder extends RecyclerView.ViewHolder {

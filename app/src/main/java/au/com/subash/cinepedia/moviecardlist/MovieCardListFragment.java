@@ -24,12 +24,17 @@ public abstract class MovieCardListFragment extends BaseFragment implements Movi
 
   private Unbinder unbinder;
 
+  private MovieCardListContract.Listener listener;
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.card_list_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
+
+    movieCardListAdapter.setItemClickListener(
+        movieModel -> getPresenter().onMovieClicked(movieModel)
+    );
 
     recyclerView.setLayoutManager(layoutManager);
     recyclerView.addItemDecoration(new MovieCardListDecoration(2, 16, true));
@@ -68,8 +73,17 @@ public abstract class MovieCardListFragment extends BaseFragment implements Movi
     getPresenter().destroy();
   }
 
+  @Override public void onAttach(Context context) {
+    super.onAttach(context);
+
+    if (context instanceof MovieCardListContract.Listener) {
+      listener = (MovieCardListContract.Listener) context;
+    }
+  }
+
   @Override public void onDetach() {
     super.onDetach();
+    listener = null;
   }
 
   @Override public void renderMovies(List<MovieModel> movieModelList) {
@@ -77,7 +91,9 @@ public abstract class MovieCardListFragment extends BaseFragment implements Movi
   }
 
   @Override public void viewMovieDetail(MovieModel movieModel) {
-
+    if (null != listener) {
+      listener.onMovieClicked(movieModel);
+    }
   }
 
   @Override public void showLoading() { }

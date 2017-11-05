@@ -9,6 +9,7 @@ import au.com.subash.cinepedia.featuredshow.FeaturedShowContract;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowFragment;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
+import au.com.subash.cinepedia.moviecardlist.MovieCardListContract;
 import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesFragmentMovie;
 import javax.inject.Inject;
 
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  * Main application screen. This is the app entry point.
  */
 public class MainActivity extends BaseActivity implements HasComponent<MainActivityComponent>,
-    FeaturedShowContract.Listener {
+    FeaturedShowContract.Listener, MovieCardListContract.Listener {
 
   @Inject MainActivityComponent mainActivityComponent;
 
@@ -55,7 +56,7 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
     return mainActivityComponent;
   }
 
-  @Override public void onFeaturedMovieClicked(MovieModel movieModel) {
+  @Override public void onMovieClicked(MovieModel movieModel) {
     navigator.navigateToMovieDetail(this, movieModel.getId());
   }
 }

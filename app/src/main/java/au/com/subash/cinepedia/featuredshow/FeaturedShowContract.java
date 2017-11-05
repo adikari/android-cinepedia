@@ -18,6 +18,6 @@ public interface FeaturedShowContract {
   }
 
   interface Listener {
-    void onFeaturedMovieClicked(MovieModel movieModel);
+    void onMovieClicked(MovieModel movieModel);
   }
 }
