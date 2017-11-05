@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
+import au.com.subash.cinepedia.util.TmdImage;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.squareup.picasso.Picasso;
@@ -40,10 +41,12 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
     holder.title.setText(movieModel.getTitle());
     holder.popularity.setText(String.valueOf(movieModel.getRating()));
 
+    String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
+
     // TODO: use image loader instead of picasso
     Picasso
         .with(context)
-        .load(movieModel.getImageUrl())
+        .load(imageUrl)
         .into(holder.thumbnail);
   }
 

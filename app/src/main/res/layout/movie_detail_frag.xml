@@ -2,11 +2,33 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+  <ImageView
+      android:id="@+id/iv_movie_detail_image"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      android:layout_width="0dp"
+      android:layout_height="200dp"
+      android:layout_centerInParent="true"
+      android:scaleType="centerCrop"
+      android:contentDescription="@string/frag_movie_image"
+      />
 
   <TextView
       android:id="@+id/tv_movie_detail_title"
-      android:layout_width="match_parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintBottom_toBottomOf="@+id/iv_movie_detail_image"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:layout_centerInParent="true"
+      android:gravity="center"
+      android:textSize="18sp"
+      android:textStyle="bold"
       />
+
 </android.support.constraint.ConstraintLayout>

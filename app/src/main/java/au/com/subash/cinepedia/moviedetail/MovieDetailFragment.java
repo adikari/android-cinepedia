@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import au.com.subash.cinepedia.R;
+import au.com.subash.cinepedia.util.TmdImage;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
 public class MovieDetailFragment extends BaseFragment implements MovieDetailContract.View {
@@ -18,6 +21,7 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
   @Inject MovieDetailPresenter presenter;
 
   @BindView(R.id.tv_movie_detail_title) TextView tv_title;
+  @BindView(R.id.iv_movie_detail_image) ImageView iv_image;
 
   private Unbinder unbinder;
 
@@ -85,6 +89,12 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
     if (null == movieDetailModel) {
       return;
     }
+
+    String imageUrl = TmdImage.getImageUrl(movieDetailModel.getImageUrl(), 185);
+
+    Picasso.with(context())
+        .load(imageUrl)
+        .into(iv_image);
 
     tv_title.setText(movieDetailModel.getTitle());
   }

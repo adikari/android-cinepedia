@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
+import au.com.subash.cinepedia.util.TmdImage;
 import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
 import butterknife.BindView;
@@ -91,8 +92,10 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
   @Override public void renderFeaturedShow(MovieModel movieModel) {
     if (null == movieModel) { return; }
 
+    String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
+
     Picasso.with(context())
-        .load(movieModel.getImageUrl())
+        .load(imageUrl)
         .into(featuredImage);
 
     title.setText(movieModel.getTitle());

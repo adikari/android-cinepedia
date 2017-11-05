@@ -7,8 +7,6 @@ import com.google.gson.annotations.SerializedName;
  */
 public class MovieEntity {
 
-  private static final String Image_URL = "https://image.tmdb.org/t/p/w185/";
-
   @SerializedName("id")
   private int id;
 
@@ -61,7 +59,7 @@ public class MovieEntity {
   }
 
   public String getImageUrl() {
-    return Image_URL + imageUrl;
+    return imageUrl;
   }
 
   public void setImageUrl(String imageUrl) {
