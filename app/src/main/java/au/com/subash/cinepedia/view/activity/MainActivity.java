@@ -1,5 +1,7 @@
 package au.com.subash.cinepedia.view.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
@@ -14,6 +16,10 @@ import javax.inject.Inject;
 public class MainActivity extends BaseActivity implements HasComponent<MainActivityComponent> {
 
   @Inject MainActivityComponent mainActivityComponent;
+
+  public static Intent getCallingIntent(Context context) {
+    return new Intent(context, MainActivity.class);
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,4 +51,6 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
   @Override public MainActivityComponent getComponent() {
     return mainActivityComponent;
   }
+
+
 }

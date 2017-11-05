@@ -1,6 +1,8 @@
 package au.com.subash.cinepedia.navigation;
 
 import android.content.Context;
+import android.content.Intent;
+import au.com.subash.cinepedia.moviedetail.MovieDetailActivity;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -11,19 +13,17 @@ import javax.inject.Singleton;
 public class Navigator {
 
   @Inject
-  public Navigator() {
-    //empty
-  }
+  public Navigator() { }
 
   /**
-   * Navigate to movie list screen
+   * Navigate to movie detail screen
    *
    * @param context Application context needed to open destiny activity
    */
-  public void navigateToMovieList(Context context) {
+  public void navigateToMovieDetail(Context context, int movieId) {
     if (context != null) {
-      // Intent intentToLaunch = MovieListActivity.getCallingIntent(context);
-      // context.startActivity(intentToLaunch);
+      Intent intentToLaunch = MovieDetailActivity.getCallingIntent(context, movieId);
+      context.startActivity(intentToLaunch);
     }
   }
 }
