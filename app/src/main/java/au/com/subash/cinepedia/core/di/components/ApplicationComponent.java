@@ -7,8 +7,12 @@ import au.com.subash.cinepedia.movie.data.MovieDataStore;
 import au.com.subash.cinepedia.movie.domain.MovieRepository;
 import au.com.subash.cinepedia.view.activity.BaseActivity;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
+import com.google.gson.Gson;
 import dagger.Component;
 import javax.inject.Singleton;
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
 
 /**
  * A component whose lifetime is the life of the application.
@@ -23,5 +27,4 @@ public interface ApplicationComponent {
   ThreadExecutor threadExecutor();
   PostExecutionThread postExecutionThread();
   MovieRepository movieRepository();
-  MovieDataStore movieDataStore();
 }

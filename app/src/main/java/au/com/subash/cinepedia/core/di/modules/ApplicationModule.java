@@ -6,13 +6,22 @@ import au.com.subash.cinepedia.core.executor.JobExecutor;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import au.com.subash.cinepedia.AndroidApplication;
 import au.com.subash.cinepedia.core.executor.UIThread;
-import au.com.subash.cinepedia.movie.data.CloudMovieDataStore;
 import au.com.subash.cinepedia.movie.data.MovieDataRepository;
 import au.com.subash.cinepedia.movie.data.MovieDataStore;
 import au.com.subash.cinepedia.movie.domain.MovieRepository;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import dagger.Module;
 import dagger.Provides;
+import java.util.concurrent.TimeUnit;
 import javax.inject.Singleton;
+import okhttp3.Cache;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Dagger module that provides objects which will live during the application lifecycle.
@@ -25,28 +34,64 @@ public class ApplicationModule {
     this.application = application;
   }
 
-  @Provides @Singleton
-  Context provideApplicationContext() {
+  @Provides @Singleton Context provideApplicationContext() {
     return this.application;
   }
 
-  @Provides @Singleton
-  ThreadExecutor provideThreadExecutor(JobExecutor jobExecutor) {
+  @Provides @Singleton ThreadExecutor provideThreadExecutor(JobExecutor jobExecutor) {
     return jobExecutor;
   }
 
-  @Provides @Singleton
-  PostExecutionThread providePostExecutionThread(UIThread uiThread) {
+  @Provides @Singleton PostExecutionThread providePostExecutionThread(UIThread uiThread) {
     return uiThread;
   }
 
-  @Provides @Singleton MovieRepository provideMovieRepository(
-      MovieDataRepository movieDataRepository) {
+  @Provides @Singleton MovieRepository provideMovieRepository(MovieDataRepository movieDataRepository) {
     return movieDataRepository;
   }
 
-  @Provides @Singleton MovieDataStore provideMovieDataStore(
-      CloudMovieDataStore cloudMovieDataStore) {
-    return cloudMovieDataStore;
+  @Provides @Singleton MovieDataStore provideMovieDataStore(Retrofit retrofit) {
+    return retrofit.create(MovieDataStore.class);
+  }
+
+  @Provides @Singleton Gson provideGson() {
+    return new GsonBuilder().create();
+  }
+
+  @Provides @Singleton Cache provideOkHttpCache() {
+    int cacheSize = 10 * 1024 * 1024; // 10 MiB
+
+    return new Cache(application.getCacheDir(), cacheSize);
+  }
+
+  @Provides @Singleton OkHttpClient provideOkHttpClient(Cache cache) {
+    String apiKey = "78af8f82a9b6b6f6dbf3a39e60f38983";
+
+    Interceptor interceptor = chain -> {
+       Request request = chain.request().newBuilder()
+           .addHeader("api_key", apiKey)
+           .addHeader("Content-Type", "application/json; charset=utf-8")
+           .build();
+
+       return chain.proceed(request);
+    };
+
+    return new OkHttpClient.Builder()
+       .readTimeout(10000, TimeUnit.MILLISECONDS)
+       .connectTimeout(15000, TimeUnit.MILLISECONDS)
+       .cache(cache)
+       .addInterceptor(interceptor)
+       .build();
+  }
+
+  @Provides @Singleton Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
+    String baseurl = "";
+
+    return new Retrofit.Builder()
+        .baseUrl(baseurl)
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .build();
   }
 }

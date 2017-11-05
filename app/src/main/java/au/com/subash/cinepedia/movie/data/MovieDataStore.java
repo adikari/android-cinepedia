@@ -2,6 +2,7 @@ package au.com.subash.cinepedia.movie.data;
 
 import io.reactivex.Observable;
 import java.util.List;
+import retrofit2.http.GET;
 
 public interface MovieDataStore {
 
@@ -13,11 +14,13 @@ public interface MovieDataStore {
   /**
    * Get an {@link Observable} which will emit a List of now playing {@link MovieEntity}
    */
+  @GET("movies/now_playing")
   Observable<List<MovieEntity>> nowPlayingMovieEntityList();
 
   /**
    * Get an {@link Observable} which will emit a List of coming soon {@link MovieEntity}
    */
+  @GET("movies/upcoming")
   Observable<List<MovieEntity>> comingSoonMovieEntityList();
 
   /**
