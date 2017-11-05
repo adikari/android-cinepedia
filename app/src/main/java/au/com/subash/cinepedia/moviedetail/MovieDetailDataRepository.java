@@ -5,12 +5,17 @@ import javax.inject.Inject;
 
 public class MovieDetailDataRepository implements MovieDetailRepository {
 
-  @Inject
-  MovieDetailDataRepository() {
+  private final MovieDetailDataStore store;
+  private final MovieDetailEntityDataMapper mapper;
 
+  @Inject
+  MovieDetailDataRepository(MovieDetailDataStore movieDetailDataStore,
+      MovieDetailEntityDataMapper mapper) {
+    store = movieDetailDataStore;
+    this.mapper = mapper;
   }
 
   @Override public Observable<MovieDetail> movieDetail() {
-    return null;
+    return store.movieDetailEntity().map(mapper::transform);
   }
 }

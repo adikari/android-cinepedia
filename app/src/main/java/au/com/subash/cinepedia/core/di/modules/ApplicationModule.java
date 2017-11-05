@@ -11,7 +11,9 @@ import au.com.subash.cinepedia.movie.data.MovieDataStore;
 import au.com.subash.cinepedia.movie.data.TmdDataRepository;
 import au.com.subash.cinepedia.movie.domain.MovieRepository;
 import au.com.subash.cinepedia.moviedetail.MovieDetailDataRepository;
+import au.com.subash.cinepedia.moviedetail.MovieDetailDataStore;
 import au.com.subash.cinepedia.moviedetail.MovieDetailRepository;
+import au.com.subash.cinepedia.moviedetail.TmdMovieDetailStore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dagger.Module;
@@ -62,8 +64,13 @@ public class ApplicationModule {
   provideMovieDetailRepository(MovieDetailDataRepository movieDetailDataRepository) {
     return movieDetailDataRepository;
   }
+
   @Provides @Singleton MovieDataStore provideMovieDataStore(TmdDataRepository tmdDataRepository) {
     return tmdDataRepository;
+  }
+
+  @Provides @Singleton MovieDetailDataStore provideMovieDetailDataStore(TmdMovieDetailStore tmdMovieDetailStore) {
+    return tmdMovieDetailStore;
   }
 
   @Provides @Singleton Gson provideGson() {
