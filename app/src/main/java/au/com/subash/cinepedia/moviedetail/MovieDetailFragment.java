@@ -29,7 +29,6 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
     return new MovieDetailFragment();
   }
 
-
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     getComponent(MovieDetailComponent.class).inject(this);
@@ -49,13 +48,9 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
 
     presenter.setView(this);
 
-    if (null != savedInstanceState) {
+    if (null == savedInstanceState) {
       loadMovieDetail();
     }
-  }
-
-  private void loadMovieDetail() {
-    presenter.initialize();
   }
 
   @Override public void onAttach(Context context) {
@@ -90,7 +85,7 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
     if (null == movieDetailModel) {
       return;
     }
-    
+
     tv_title.setText(movieDetailModel.getTitle());
   }
 
@@ -103,10 +98,15 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
   @Override public void hideRetry() { }
 
   @Override public void showError(String message) {
-
+    showToastMessage(message);
   }
 
   @Override public Context context() {
     return getActivity().getApplicationContext();
   }
+
+  private void loadMovieDetail() {
+    presenter.initialize();
+  }
+
 }
