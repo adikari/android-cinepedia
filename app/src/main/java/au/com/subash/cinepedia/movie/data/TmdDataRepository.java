@@ -26,7 +26,7 @@ public class TmdDataRepository implements MovieDataStore {
     return null;
   }
 
-  @Override public Observable<MovieEntity> getFeaturedShow() {
+  @Override public Observable<MovieEntity> featuredShow() {
     Observable<TmdMovieResponse> response = tmdMovieService.getFeaturedShow();
 
     return null;

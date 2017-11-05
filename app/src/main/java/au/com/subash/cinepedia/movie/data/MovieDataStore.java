@@ -23,7 +23,7 @@ public interface MovieDataStore {
   /**
    * Get an {@link Observable} which will emit a featured show {@link MovieEntity}
    */
-  Observable<MovieEntity> getFeaturedShow();
+  Observable<MovieEntity> featuredShow();
 
   /**
    * Get an {@link Observable} which will emit a {@link MovieEntity} by its id.
