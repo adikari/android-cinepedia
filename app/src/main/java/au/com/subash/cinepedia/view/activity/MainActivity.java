@@ -23,11 +23,15 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
     initializeInjector();
 
     if (null == savedInstanceState) {
-      addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
-      addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragmentMovie.getInstance());
-      addFragment(R.id.fl_coming_soon_movies, ComingSoonMoviesFragment.getInstance());
+      initializeUI();
     }
 
+  }
+
+  private void initializeUI() {
+    addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
+    addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragmentMovie.getInstance());
+    addFragment(R.id.fl_coming_soon_movies, ComingSoonMoviesFragment.getInstance());
   }
 
   private void initializeInjector() {
