@@ -20,8 +20,9 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
 
   @Inject MovieDetailPresenter presenter;
 
-  @BindView(R.id.tv_movie_detail_title) TextView tv_title;
-  @BindView(R.id.iv_movie_detail_image) ImageView iv_image;
+  @BindView(R.id.tv_movie_detail_title) TextView tvTitle;
+  @BindView(R.id.iv_movie_detail_image) ImageView ivImage;
+  @BindView(R.id.tv_movie_detail_overview) TextView tvOverview;
 
   private Unbinder unbinder;
 
@@ -94,9 +95,10 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
 
     Picasso.with(context())
         .load(imageUrl)
-        .into(iv_image);
+        .into(ivImage);
 
-    tv_title.setText(movieDetailModel.getTitle());
+    tvTitle.setText(movieDetailModel.getTitle());
+    tvOverview.setText(movieDetailModel.getOverview());
   }
 
   @Override public void showLoading() { }
