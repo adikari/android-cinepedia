@@ -13,12 +13,12 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_layout);
+    setContentView(R.layout.movie_detail_act);
 
     initializeInjector();
 
     if (null == savedInstanceState) {
-      // addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
+      addFragment(R.id.fl_movie_detail, MovieDetailFragment.getInstance());
     }
 
   }
