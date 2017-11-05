@@ -30,6 +30,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApplicationModule {
   private final AndroidApplication application;
 
+  private static final String API_BASE_URL = "https://api.themoviedb.org/3/";
+  private static final String API_KEY = "78af8f82a9b6b6f6dbf3a39e60f38983";
+
   public ApplicationModule(AndroidApplication application) {
     this.application = application;
   }
@@ -65,11 +68,9 @@ public class ApplicationModule {
   }
 
   @Provides @Singleton OkHttpClient provideOkHttpClient(Cache cache) {
-    String apiKey = "78af8f82a9b6b6f6dbf3a39e60f38983";
-
     Interceptor interceptor = chain -> {
        Request request = chain.request().newBuilder()
-           .addHeader("api_key", apiKey)
+           .addHeader("api_key", API_KEY)
            .addHeader("Content-Type", "application/json; charset=utf-8")
            .build();
 
@@ -85,10 +86,8 @@ public class ApplicationModule {
   }
 
   @Provides @Singleton Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
-    String baseurl = "";
-
     return new Retrofit.Builder()
-        .baseUrl(baseurl)
+        .baseUrl(API_BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
