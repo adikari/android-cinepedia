@@ -15,24 +15,22 @@ public class TmdDataRepository implements MovieDataStore {
   }
 
   @Override public Observable<List<MovieEntity>> movieEntityList() {
-    return null;
+    throw new UnsupportedOperationException("movieEntityList method is not implemented");
   }
 
   @Override public Observable<List<MovieEntity>> nowPlayingMovieEntityList() {
-    return null;
+    return tmdMovieService.nowPlayingMovies().map(TmdMovieResponse::getResults);
   }
 
   @Override public Observable<List<MovieEntity>> comingSoonMovieEntityList() {
-    return null;
+    return tmdMovieService.upcomingMovies().map(TmdMovieResponse::getResults);
   }
 
-  @Override public Observable<MovieEntity> featuredShow() {
-    Observable<TmdMovieResponse> response = tmdMovieService.upcomingMovies();
-
-    return response.map(r -> r.getResults().get(0));
+  @Override public Observable<MovieEntity> featuredShowMovieEntity() {
+    return tmdMovieService.upcomingMovies().map(response -> response.getResults().get(0));
   }
 
   @Override public Observable<MovieEntity> movieEntityDetails(int id) {
-    return null;
+    throw new UnsupportedOperationException("movieEntityDetails method is not implemented");
   }
 }
