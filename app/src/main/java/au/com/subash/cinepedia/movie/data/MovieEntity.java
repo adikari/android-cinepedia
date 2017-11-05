@@ -23,7 +23,7 @@ public class MovieEntity {
   private String imageUrl;
 
   @SerializedName("popularity")
-  private int popularity;
+  private double popularity;
 
   MovieEntity() {
     // Empty
@@ -65,7 +65,7 @@ public class MovieEntity {
     this.imageUrl = imageUrl;
   }
 
-  public int getPopularity() {
+  public double getPopularity() {
     return popularity;
   }
 
