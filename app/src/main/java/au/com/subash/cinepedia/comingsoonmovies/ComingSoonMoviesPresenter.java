@@ -43,6 +43,22 @@ public class ComingSoonMoviesPresenter implements MovieCardListContract.Presente
     getComingSoonMovies.execute(new GetComingSoonMoviesSubscriber());
   }
 
+  private void showViewLoading() {
+    view.showLoading();
+  }
+
+  private void hideViewLoading() {
+    view.hideLoading();
+  }
+
+  private void showViewRetry() {
+    view.showRetry();
+  }
+
+  private void hideViewRetry() {
+    view.hideRetry();
+  }
+
   private void showErrorMessage(ErrorBundle errorBundle) {
     String message = ErrorMessageFactory.create(view.context(), errorBundle.getException());
 
@@ -54,8 +70,19 @@ public class ComingSoonMoviesPresenter implements MovieCardListContract.Presente
   }
 
   private class GetComingSoonMoviesSubscriber extends DefaultSubscriber<List<Movie>> {
+    @Override public void onStart() {
+      ComingSoonMoviesPresenter.this.hideViewRetry();
+      ComingSoonMoviesPresenter.this.showViewLoading();
+    }
+
+    @Override public void onComplete() {
+      ComingSoonMoviesPresenter.this.hideViewLoading();
+    }
+
     @Override public void onError(Throwable e) {
+      ComingSoonMoviesPresenter.this.hideViewLoading();
       ComingSoonMoviesPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
+      ComingSoonMoviesPresenter.this.showViewRetry();
     }
 
     @Override public void onNext(List<Movie> movies) {

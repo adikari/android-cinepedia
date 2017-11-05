@@ -43,6 +43,22 @@ public class NowPlayingMoviesPresenter implements MovieCardListContract.Presente
     getNowPlayingMovies.execute(new NowPlayingMoviesSubscriber());
   }
 
+  private void showViewLoading() {
+    view.showLoading();
+  }
+
+  private void hideViewLoading() {
+    view.hideLoading();
+  }
+
+  private void showViewRetry() {
+    view.showRetry();
+  }
+
+  private void hideViewRetry() {
+    view.hideRetry();
+  }
+
   private void showErrorMessage(ErrorBundle errorBundle) {
     String message = ErrorMessageFactory.create(view.context(), errorBundle.getException());
     view.showError(message);
@@ -53,8 +69,19 @@ public class NowPlayingMoviesPresenter implements MovieCardListContract.Presente
   }
 
   private class NowPlayingMoviesSubscriber extends DefaultSubscriber<List<Movie>> {
+    @Override public void onStart() {
+      NowPlayingMoviesPresenter.this.hideViewRetry();
+      NowPlayingMoviesPresenter.this.showViewLoading();
+    }
+
+    @Override public void onComplete() {
+      NowPlayingMoviesPresenter.this.hideViewLoading();
+    }
+
     @Override public void onError(Throwable e) {
+      NowPlayingMoviesPresenter.this.hideViewLoading();
       NowPlayingMoviesPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
+      NowPlayingMoviesPresenter.this.showViewRetry();
     }
 
     @Override public void onNext(List<Movie> movies) {

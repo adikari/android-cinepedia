@@ -67,8 +67,19 @@ public class FeaturedShowPresenter implements FeaturedShowContract.Presenter {
   }
 
   private class FeaturedShowSubscriber extends DefaultSubscriber<Movie> {
+    @Override public void onStart() {
+      FeaturedShowPresenter.this.hideViewRetry();
+      FeaturedShowPresenter.this.showViewLoading();
+    }
+
+    @Override public void onComplete() {
+      FeaturedShowPresenter.this.hideViewLoading();
+    }
+
     @Override public void onError(Throwable e) {
+      FeaturedShowPresenter.this.hideViewLoading();
       FeaturedShowPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
+      FeaturedShowPresenter.this.showViewRetry();
     }
 
     @Override public void onNext(Movie movie) {
