@@ -15,7 +15,7 @@ public class MovieDetailDataRepository implements MovieDetailRepository {
     this.mapper = mapper;
   }
 
-  @Override public Observable<MovieDetail> movieDetail() {
-    return store.movieDetailEntity().map(mapper::transform);
+  @Override public Observable<MovieDetail> movieDetail(int movieId) {
+    return store.movieDetailEntity(movieId).map(mapper::transform);
   }
 }

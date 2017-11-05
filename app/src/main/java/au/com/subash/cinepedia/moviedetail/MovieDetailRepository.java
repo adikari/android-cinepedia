@@ -4,5 +4,5 @@ import io.reactivex.Observable;
 
 public interface MovieDetailRepository {
 
-  Observable<MovieDetail> movieDetail();
+  Observable<MovieDetail> movieDetail(int movieId);
 }

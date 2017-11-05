@@ -8,16 +8,18 @@ import javax.inject.Inject;
 
 public class GetMovieDetail extends UseCase {
 
+  private final int movieId;
   private final MovieDetailRepository movieDetailRepository;
 
   @Inject
-  protected GetMovieDetail(MovieDetailRepository movieDetailRepository, ThreadExecutor threadExecutor,
-      PostExecutionThread postExecutionThread) {
+  protected GetMovieDetail(int movieId, MovieDetailRepository movieDetailRepository,
+      ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
     super(threadExecutor, postExecutionThread);
     this.movieDetailRepository = movieDetailRepository;
+    this.movieId = movieId;
   }
 
   @Override protected Observable buildUseCaseObservable() {
-    return movieDetailRepository.movieDetail();
+    return movieDetailRepository.movieDetail(movieId);
   }
 }

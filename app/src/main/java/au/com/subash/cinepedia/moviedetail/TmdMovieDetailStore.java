@@ -13,7 +13,7 @@ public class TmdMovieDetailStore implements MovieDetailDataStore {
     serivce = retrofit.create(TmdMovieDetailService.class);
   }
 
-  @Override public Observable<MovieDetailEntity> movieDetailEntity() {
-    return serivce.movieDetail(1);
+  @Override public Observable<MovieDetailEntity> movieDetailEntity(int movieId) {
+    return serivce.movieDetail(movieId);
   }
 }
