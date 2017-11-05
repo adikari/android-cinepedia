@@ -4,7 +4,6 @@ import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
 import au.com.subash.cinepedia.interactor.UseCase;
-import au.com.subash.cinepedia.movie.domain.MovieRepository;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Named;

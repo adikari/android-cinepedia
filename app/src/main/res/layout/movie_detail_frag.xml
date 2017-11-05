@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
   <TextView
+      android:id="@+id/tv_movie_detail_title"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="I am showing up"
       />
 </android.support.constraint.ConstraintLayout>

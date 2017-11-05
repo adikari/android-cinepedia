@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import javax.inject.Inject;
@@ -14,6 +16,8 @@ import javax.inject.Inject;
 public class MovieDetailFragment extends BaseFragment implements MovieDetailContract.View {
 
   @Inject MovieDetailPresenter presenter;
+
+  @BindView(R.id.tv_movie_detail_title) TextView tv_title;
 
   private Unbinder unbinder;
 
@@ -83,7 +87,11 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
   }
 
   @Override public void renderMovieDetail(MovieDetailModel movieDetailModel) {
-
+    if (null == movieDetailModel) {
+      return;
+    }
+    
+    tv_title.setText(movieDetailModel.getTitle());
   }
 
   @Override public void showLoading() { }
