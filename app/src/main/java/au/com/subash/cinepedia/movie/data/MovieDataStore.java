@@ -14,13 +14,13 @@ public interface MovieDataStore {
   /**
    * Get an {@link Observable} which will emit a List of now playing {@link MovieEntity}
    */
-  @GET("movies/now_playing")
+  @GET("movie/now_playing")
   Observable<List<MovieEntity>> nowPlayingMovieEntityList();
 
   /**
    * Get an {@link Observable} which will emit a List of coming soon {@link MovieEntity}
    */
-  @GET("movies/upcoming")
+  @GET("movie/upcoming")
   Observable<List<MovieEntity>> comingSoonMovieEntityList();
 
   /**

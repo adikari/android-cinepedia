@@ -16,6 +16,7 @@ import dagger.Provides;
 import java.util.concurrent.TimeUnit;
 import javax.inject.Singleton;
 import okhttp3.Cache;
+import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -70,16 +71,23 @@ public class ApplicationModule {
 
   @Provides @Singleton OkHttpClient provideOkHttpClient(Cache cache) {
     Interceptor requestInterceptor = chain -> {
-       Request request = chain.request().newBuilder()
-           .addHeader("api_key", API_KEY)
-           .addHeader("Content-Type", "application/json; charset=utf-8")
-           .build();
+      Request original = chain.request();
+      HttpUrl originalHttpUrl = original.url();
+
+      HttpUrl url = originalHttpUrl.newBuilder()
+          .addQueryParameter("api_key", API_KEY)
+          .build();
+
+      Request request = chain.request().newBuilder()
+          .url(url)
+          .addHeader("Content-Type", "application/json; charset=utf-8")
+          .build();
 
        return chain.proceed(request);
     };
 
     HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-    loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
+    loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.NONE);
 
     return new OkHttpClient.Builder()
        .readTimeout(10000, TimeUnit.MILLISECONDS)
