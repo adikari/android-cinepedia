@@ -10,5 +10,6 @@ import dagger.Component;
     dependencies = ApplicationComponent.class,
     modules = { ActivityModule.class, MovieDetailModule.class }
 )
-public interface MovieDetailComponent {
+interface MovieDetailComponent {
+  void inject(MovieDetailFragment movieDetailFragment);
 }

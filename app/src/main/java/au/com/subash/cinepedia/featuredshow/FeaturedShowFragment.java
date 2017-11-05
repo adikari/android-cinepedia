@@ -45,7 +45,6 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
     View view = inflater.inflate(R.layout.featured_frag, container, false);
 
-    ButterKnife.setDebug(true);
     unbinder = ButterKnife.bind(this, view);
 
     return view;
