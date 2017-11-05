@@ -8,6 +8,7 @@ import au.com.subash.cinepedia.AndroidApplication;
 import au.com.subash.cinepedia.core.executor.UIThread;
 import au.com.subash.cinepedia.movie.data.MovieDataRepository;
 import au.com.subash.cinepedia.movie.data.MovieDataStore;
+import au.com.subash.cinepedia.movie.data.TmdDataRepository;
 import au.com.subash.cinepedia.movie.domain.MovieRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,8 +56,8 @@ public class ApplicationModule {
     return movieDataRepository;
   }
 
-  @Provides @Singleton MovieDataStore provideMovieDataStore(Retrofit retrofit) {
-    return retrofit.create(MovieDataStore.class);
+  @Provides @Singleton MovieDataStore provideMovieDataStore(TmdDataRepository tmdDataRepository) {
+    return tmdDataRepository;
   }
 
   @Provides @Singleton Gson provideGson() {
