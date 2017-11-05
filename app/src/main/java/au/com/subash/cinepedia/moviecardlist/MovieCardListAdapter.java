@@ -38,7 +38,7 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
     final MovieModel movieModel = movieModelList.get(position);
 
     holder.title.setText(movieModel.getTitle());
-    holder.popularity.setText(String.valueOf(movieModel.getPopularity()));
+    holder.popularity.setText(String.valueOf(movieModel.getRating()));
 
     // TODO: use image loader instead of picasso
     Picasso

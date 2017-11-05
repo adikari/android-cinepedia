@@ -27,6 +27,9 @@ public class MovieEntity {
   @SerializedName("popularity")
   private double popularity;
 
+  @SerializedName("vote_average")
+  private double rating;
+
   MovieEntity() { }
 
   public int getId() {
@@ -71,5 +74,13 @@ public class MovieEntity {
 
   public void setPopularity(int popularity) {
     this.popularity = popularity;
+  }
+
+  public double getRating() {
+    return rating;
+  }
+
+  public void setRating(double rating) {
+    this.rating = rating;
   }
 }

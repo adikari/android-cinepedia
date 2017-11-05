@@ -29,7 +29,8 @@ class MovieEntityDataMapper {
       movie.setTitle(movieEntity.getTitle());
       movie.setTagline(movieEntity.getTagline());
       movie.setImageUrl(movieEntity.getImageUrl());
-      movie.setPopularity((int) movieEntity.getPopularity());
+      movie.setPopularity(movieEntity.getPopularity());
+      movie.setRating(movieEntity.getRating());
     }
 
     return movie;

@@ -10,7 +10,8 @@ public class Movie {
   private String tagline;
   private String status;
   private String imageUrl;
-  private int popularity;
+  private double popularity;
+  private double rating;
 
   public Movie(int id) {
     this.id = id;
@@ -52,11 +53,19 @@ public class Movie {
     this.imageUrl = imageUrl;
   }
 
-  public int getPopularity() {
+  public double getPopularity() {
     return popularity;
   }
 
-  public void setPopularity(int popularity) {
+  public void setPopularity(double popularity) {
     this.popularity = popularity;
+  }
+
+  public double getRating() {
+    return rating;
+  }
+
+  public void setRating(double rating) {
+    this.rating = rating;
   }
 }
