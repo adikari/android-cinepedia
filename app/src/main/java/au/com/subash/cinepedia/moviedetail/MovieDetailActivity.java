@@ -46,10 +46,12 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
       movieId = getIntent().getIntExtra(INTENT_EXTRA_PARAM_MOVIE_ID, -1);
 
       addFragment(R.id.fl_movie_detail, MovieDetailFragment.getInstance());
-      addFragment(R.id.fl_cast_scroll, CastScrollFragment.getInstance());
+      //addFragment(R.id.fl_cast_scroll, CastScrollFragment.getInstance());
     } else {
       movieId = savedInstanceState.getInt(INSTANCE_STATE_PARAM_MOVIE_ID);
     }
+
+    movieId = 550;
   }
 
   private void initializeInjector() {
