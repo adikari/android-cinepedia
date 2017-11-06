@@ -2,10 +2,14 @@ package au.com.subash.cinepedia.casts;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.inject.Inject;
 
 public class CastEntityDataMapper {
 
-  public static Cast transform(CastEntity castEntity) {
+  @Inject
+  public CastEntityDataMapper() { }
+
+  public Cast transform(CastEntity castEntity) {
     Cast cast = null;
 
     if (null != castEntity) {
@@ -21,7 +25,7 @@ public class CastEntityDataMapper {
     return cast;
   }
 
-  public static List<Cast> transform(List<CastEntity> castEntityList) {
+  public List<Cast> transform(List<CastEntity> castEntityList) {
     List<Cast> castList = new ArrayList<>();
 
     if (castEntityList != null && !castEntityList.isEmpty()) {

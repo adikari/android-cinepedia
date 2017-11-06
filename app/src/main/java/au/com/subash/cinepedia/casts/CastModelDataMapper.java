@@ -2,8 +2,12 @@ package au.com.subash.cinepedia.casts;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.inject.Inject;
 
 public class CastModelDataMapper {
+
+  @Inject
+  public CastModelDataMapper() { }
 
   public static CastModel transform(Cast cast) {
     CastModel castModel = null;
