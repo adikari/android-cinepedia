@@ -1,10 +1,10 @@
 package au.com.subash.cinepedia.view.activity;
 
-import au.com.subash.cinepedia.movie.comingsoon.GetComingSoonMovies;
+import au.com.subash.cinepedia.movies.comingsoon.GetComingSoonMovies;
 import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.featuredshow.GetFeaturedShow;
 import au.com.subash.cinepedia.interactor.UseCase;
-import au.com.subash.cinepedia.movie.nowplaying.GetNowPlayingMovies;
+import au.com.subash.cinepedia.movies.nowplaying.GetNowPlayingMovies;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Named;

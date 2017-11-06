@@ -1,9 +1,9 @@
-package au.com.subash.cinepedia.movie.comingsoon;
+package au.com.subash.cinepedia.movies.comingsoon;
 
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
 import au.com.subash.cinepedia.interactor.UseCase;
-import au.com.subash.cinepedia.movie.MovieRepository;
+import au.com.subash.cinepedia.movies.MovieRepository;
 import io.reactivex.Observable;
 import javax.inject.Inject;
 

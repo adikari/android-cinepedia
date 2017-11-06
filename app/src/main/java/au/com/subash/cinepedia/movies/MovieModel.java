@@ -1,10 +1,9 @@
-package au.com.subash.cinepedia.movie;
+package au.com.subash.cinepedia.movies;
 
 /**
- * Representation of movie in domain layer
+ * Representation of movie in Presentation layer
  */
-public class Movie {
-
+public class MovieModel {
   private final int id;
   private String title;
   private String overview;
@@ -14,7 +13,7 @@ public class Movie {
   private double rating;
   private String releaseDate;
 
-  public Movie(int id) {
+  public MovieModel(int id) {
     this.id = id;
   }
 

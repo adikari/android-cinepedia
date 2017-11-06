@@ -1,11 +1,11 @@
-package au.com.subash.cinepedia.movie.comingsoon;
+package au.com.subash.cinepedia.movies.nowplaying;
 
-import au.com.subash.cinepedia.movie.MovieModel;
+import au.com.subash.cinepedia.movies.MovieModel;
 import au.com.subash.cinepedia.presenter.BasePresenter;
 import au.com.subash.cinepedia.view.component.LoadDataView;
 import java.util.List;
 
-public interface ComingSoonMoviesContract {
+public interface NowPlayingMoviesContract {
 
   interface View extends LoadDataView {
     void renderMovies(List<MovieModel> movieModelList);
@@ -20,6 +20,6 @@ public interface ComingSoonMoviesContract {
 
   interface Listener {
     void onMovieClicked(MovieModel movieModel);
-    void onViewAllComingSoonClicked();
+    void onViewAllNowPlayingClicked();
   }
 }

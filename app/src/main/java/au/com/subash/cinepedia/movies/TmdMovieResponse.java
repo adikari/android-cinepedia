@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.movie;
+package au.com.subash.cinepedia.movies;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.List;

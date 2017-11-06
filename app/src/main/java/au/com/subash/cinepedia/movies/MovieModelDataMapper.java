@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.movie;
+package au.com.subash.cinepedia.movies;
 
 import java.util.ArrayList;
 import java.util.List;

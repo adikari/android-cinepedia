@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.movie.nowplaying;
+package au.com.subash.cinepedia.movies.nowplaying;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;

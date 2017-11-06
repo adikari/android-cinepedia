@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.movie.comingsoon;
+package au.com.subash.cinepedia.movies.comingsoon;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import au.com.subash.cinepedia.R;
-import au.com.subash.cinepedia.movie.MovieModel;
+import au.com.subash.cinepedia.movies.MovieModel;
 import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
 import butterknife.BindView;

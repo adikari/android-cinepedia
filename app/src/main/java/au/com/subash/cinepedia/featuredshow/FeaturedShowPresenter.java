@@ -5,9 +5,9 @@ import au.com.subash.cinepedia.exception.ErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorMessageFactory;
 import au.com.subash.cinepedia.interactor.DefaultSubscriber;
 import au.com.subash.cinepedia.interactor.UseCase;
-import au.com.subash.cinepedia.movie.MovieModel;
-import au.com.subash.cinepedia.movie.MovieModelDataMapper;
-import au.com.subash.cinepedia.movie.Movie;
+import au.com.subash.cinepedia.movies.MovieModel;
+import au.com.subash.cinepedia.movies.MovieModelDataMapper;
+import au.com.subash.cinepedia.movies.Movie;
 import javax.inject.Inject;
 import javax.inject.Named;
 

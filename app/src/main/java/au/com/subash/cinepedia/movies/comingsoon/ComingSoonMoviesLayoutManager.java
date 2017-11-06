@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.movie.comingsoon;
+package au.com.subash.cinepedia.movies.comingsoon;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;

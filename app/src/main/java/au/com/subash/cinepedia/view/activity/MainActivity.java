@@ -3,15 +3,15 @@ package au.com.subash.cinepedia.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import au.com.subash.cinepedia.movie.comingsoon.ComingSoonMoviesContract;
-import au.com.subash.cinepedia.movie.comingsoon.ComingSoonMoviesFragment;
+import au.com.subash.cinepedia.movies.comingsoon.ComingSoonMoviesContract;
+import au.com.subash.cinepedia.movies.comingsoon.ComingSoonMoviesFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowContract;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowFragment;
 import au.com.subash.cinepedia.R;
-import au.com.subash.cinepedia.movie.MovieModel;
-import au.com.subash.cinepedia.movie.nowplaying.NowPlayingMoviesContract;
-import au.com.subash.cinepedia.movie.nowplaying.NowPlayingMoviesFragment;
+import au.com.subash.cinepedia.movies.MovieModel;
+import au.com.subash.cinepedia.movies.nowplaying.NowPlayingMoviesContract;
+import au.com.subash.cinepedia.movies.nowplaying.NowPlayingMoviesFragment;
 import javax.inject.Inject;
 
 /**
