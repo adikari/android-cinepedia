@@ -1,12 +1,12 @@
 package au.com.subash.cinepedia.moviedetail;
 
+import au.com.subash.cinepedia.core.di.PerActivity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-@Singleton
-public class MovieDetailModelDataMapper {
+@PerActivity
+class MovieDetailModelDataMapper {
 
   @Inject
   MovieDetailModelDataMapper() { }

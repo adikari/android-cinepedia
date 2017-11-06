@@ -4,18 +4,18 @@ import au.com.subash.cinepedia.presenter.BasePresenter;
 import au.com.subash.cinepedia.view.component.LoadDataView;
 import java.util.List;
 
-class CastScrollContract {
+public class CastScrollContract {
 
-  interface View extends LoadDataView {
+  public interface View extends LoadDataView {
     void renderCasts(List<CastModel> castModelList);
     void viewCast(CastModel castModel);
   }
 
-  interface Presenter extends BasePresenter {
+  public interface Presenter extends BasePresenter {
 
   }
 
-  interface Listener {
+  public interface Listener {
     void onCastClicked(CastModel castModel);
   }
 }

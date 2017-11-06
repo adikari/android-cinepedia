@@ -1,5 +1,6 @@
 package au.com.subash.cinepedia.moviedetail;
 
+import au.com.subash.cinepedia.casts.CastScrollFragment;
 import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.core.di.components.ActivityComponent;
 import au.com.subash.cinepedia.core.di.components.ApplicationComponent;
@@ -13,4 +14,5 @@ import dagger.Component;
 )
 public interface MovieDetailComponent extends ActivityComponent {
   void inject(MovieDetailFragment movieDetailFragment);
+  void inject(CastScrollFragment castScrollFragment);
 }

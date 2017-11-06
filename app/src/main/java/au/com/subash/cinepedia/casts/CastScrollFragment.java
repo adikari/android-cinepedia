@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import au.com.subash.cinepedia.R;
+import au.com.subash.cinepedia.moviedetail.MovieDetailComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -35,7 +36,8 @@ public class CastScrollFragment extends BaseFragment implements CastScrollContra
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    getComponent(CastComponent.class).inject(this);
+
+    getComponent(MovieDetailComponent.class).inject(this);
   }
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,

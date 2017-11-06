@@ -1,5 +1,7 @@
 package au.com.subash.cinepedia.moviedetail;
 
+import au.com.subash.cinepedia.casts.CastRepository;
+import au.com.subash.cinepedia.casts.GetCasts;
 import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
@@ -20,5 +22,11 @@ class MovieDetailModule {
   provideGetMovieDetailUseCase(MovieDetailRepository repository,
       ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
     return new GetMovieDetail(movieId, repository, threadExecutor, postExecutionThread);
+  }
+
+  @Provides @PerActivity @Named("getCasts") UseCase
+  provideGetCastUseCase(CastRepository repository, ThreadExecutor threadExecutor,
+      PostExecutionThread postExecutionThread) {
+    return new GetCasts(movieId, repository, threadExecutor, postExecutionThread);
   }
 }

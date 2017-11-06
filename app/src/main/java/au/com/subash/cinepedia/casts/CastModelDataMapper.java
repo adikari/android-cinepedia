@@ -1,11 +1,11 @@
 package au.com.subash.cinepedia.casts;
 
+import au.com.subash.cinepedia.core.di.PerActivity;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-@Singleton
+@PerActivity
 public class CastModelDataMapper {
 
   @Inject

@@ -10,7 +10,7 @@ public class GetCasts extends UseCase {
   private final CastRepository repository;
   private final int movieId;
 
-  GetCasts(int movieId, CastRepository repository, ThreadExecutor threadExecutor,
+  public GetCasts(int movieId, CastRepository repository, ThreadExecutor threadExecutor,
       PostExecutionThread postExecutionThread) {
     super(threadExecutor, postExecutionThread);
 
