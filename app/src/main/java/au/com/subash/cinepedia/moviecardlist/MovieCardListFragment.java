@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
@@ -21,16 +22,29 @@ public abstract class MovieCardListFragment extends BaseFragment implements Movi
   @Inject MovieCardListAdapter movieCardListAdapter;
 
   @BindView(R.id.rv_card_list) RecyclerView recyclerView;
+  @BindView(R.id.tv_card_list_title) TextView titleView;
+
+  protected static final String PARAM_TITLE = "com.au.subash.cinepedia.CARD_LIST_FRAG_TITLE_PARAM";
 
   private Unbinder unbinder;
+  private String fragmentTitle;
 
   private MovieCardListContract.Listener listener;
+
+  @Override public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    Bundle args = getArguments();
+    fragmentTitle = args.getString(PARAM_TITLE, "");
+  }
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.card_list_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
+
+    titleView.setText(fragmentTitle);
 
     movieCardListAdapter.setItemClickListener(
         movieModel -> getPresenter().onMovieClicked(movieModel)

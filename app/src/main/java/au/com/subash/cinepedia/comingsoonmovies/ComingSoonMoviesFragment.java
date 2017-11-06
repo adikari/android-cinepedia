@@ -10,8 +10,14 @@ public class ComingSoonMoviesFragment extends MovieCardListFragment implements M
 
   @Inject ComingSoonMoviesPresenter presenter;
 
-  public static ComingSoonMoviesFragment getInstance() {
-    return new ComingSoonMoviesFragment();
+  public static ComingSoonMoviesFragment getInstance(String fragmentTitle) {
+    ComingSoonMoviesFragment fragment = new ComingSoonMoviesFragment();
+
+    Bundle args = new Bundle();
+    args.putString(PARAM_TITLE, fragmentTitle);
+    fragment.setArguments(args);
+
+    return fragment;
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {

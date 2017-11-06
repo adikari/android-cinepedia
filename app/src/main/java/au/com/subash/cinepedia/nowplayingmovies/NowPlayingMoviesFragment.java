@@ -14,8 +14,14 @@ public class NowPlayingMoviesFragment extends MovieCardListFragment implements M
     setRetainInstance(true);
   }
 
-  public static NowPlayingMoviesFragment getInstance() {
-    return new NowPlayingMoviesFragment();
+  public static NowPlayingMoviesFragment getInstance(String fragmentTitle) {
+    NowPlayingMoviesFragment fragment = new NowPlayingMoviesFragment();
+
+    Bundle args = new Bundle();
+    args.putString(PARAM_TITLE, fragmentTitle);
+    fragment.setArguments(args);
+
+    return fragment;
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
