@@ -37,7 +37,6 @@ public abstract class MovieCardListFragment extends BaseFragment implements Movi
     );
 
     recyclerView.setLayoutManager(layoutManager);
-    //recyclerView.addItemDecoration(new MovieCardListDecoration(1, 16, true));
     recyclerView.setAdapter(movieCardListAdapter);
 
     return view;

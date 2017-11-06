@@ -8,7 +8,6 @@ public class MovieCardListLayoutManager extends GridLayoutManager {
 
   @Inject
   public MovieCardListLayoutManager(Context context) {
-    // TODO: set span count this configurable
-    super(context, 2, GridLayoutManager.HORIZONTAL, false);
+    super(context, 1, GridLayoutManager.HORIZONTAL, false);
   }
 }
