@@ -25,6 +25,7 @@
           app:layout_constraintLeft_toLeftOf="parent"
           app:layout_constraintTop_toTopOf="parent"
           app:layout_constraintBottom_toTopOf="@+id/rv_card_list"
+          android:text="@string/nowplaying_frag_title"
           android:paddingTop="@dimen/card_large_margin"
           android:paddingBottom="@dimen/card_small_margin"
           android:textAppearance="@android:style/TextAppearance.Material.Title"

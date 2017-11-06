@@ -19,7 +19,6 @@ import javax.inject.Inject;
 
 public class ComingSoonMoviesFragment extends BaseFragment implements ComingSoonMoviesContract.View {
 
-  @Inject ComingSoonMoviesLayoutManager layoutManager;
   @Inject ComingSoonMoviesAdapter movieCardListAdapter;
   @Inject ComingSoonMoviesPresenter presenter;
 
@@ -41,7 +40,7 @@ public class ComingSoonMoviesFragment extends BaseFragment implements ComingSoon
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.card_list_frag, container, false);
+    View view = inflater.inflate(R.layout.coming_soon_movies_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
 
@@ -51,7 +50,7 @@ public class ComingSoonMoviesFragment extends BaseFragment implements ComingSoon
         movieModel -> presenter.onMovieClicked(movieModel)
     );
 
-    recyclerView.setLayoutManager(layoutManager);
+    recyclerView.setLayoutManager(new ComingSoonMoviesLayoutManager(context()));
     recyclerView.setAdapter(movieCardListAdapter);
 
     return view;

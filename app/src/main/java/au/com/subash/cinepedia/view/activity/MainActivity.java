@@ -3,7 +3,6 @@ package au.com.subash.cinepedia.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesContract;
 import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
@@ -11,7 +10,6 @@ import au.com.subash.cinepedia.featuredshow.FeaturedShowContract;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowFragment;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
-import au.com.subash.cinepedia.moviecardlist.MovieCardListContract;
 import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesContract;
 import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesFragment;
 import javax.inject.Inject;
@@ -42,13 +40,8 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
 
   private void initializeUI() {
     addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
-    initializeNowPlayingFragment();
+    addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragment.getInstance());
     addFragment(R.id.fl_coming_soon_movies, ComingSoonMoviesFragment.getInstance());
-  }
-
-  private void initializeNowPlayingFragment() {
-    String title = getResources().getString(R.string.nowplaying_frag_title);
-    addFragment(R.id.fl_now_playing_movies, NowPlayingMoviesFragment.getInstance(title));
   }
 
   private void initializeInjector() {

@@ -1,7 +1,6 @@
 package au.com.subash.cinepedia.comingsoonmovies;
 
 import au.com.subash.cinepedia.movie.MovieModel;
-import au.com.subash.cinepedia.moviecardlist.MovieCardListContract;
 import au.com.subash.cinepedia.exception.DefaultErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorMessageFactory;

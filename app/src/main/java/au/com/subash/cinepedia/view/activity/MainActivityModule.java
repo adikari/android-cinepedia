@@ -1,12 +1,9 @@
 package au.com.subash.cinepedia.view.activity;
 
-import android.content.Context;
-import android.support.v7.widget.GridLayoutManager;
 import au.com.subash.cinepedia.comingsoonmovies.GetComingSoonMovies;
 import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.featuredshow.GetFeaturedShow;
 import au.com.subash.cinepedia.interactor.UseCase;
-import au.com.subash.cinepedia.moviecardlist.MovieCardListLayoutManager;
 import au.com.subash.cinepedia.nowplayingmovies.GetNowPlayingMovies;
 import dagger.Module;
 import dagger.Provides;
@@ -28,10 +25,5 @@ class MainActivityModule {
   @Provides @PerActivity @Named("getComingSoonMovies") UseCase
   provideGetComingSoonMoviesUseCase(GetComingSoonMovies getComingSoonMovies) {
     return getComingSoonMovies;
-  }
-
-  @Provides @PerActivity GridLayoutManager
-  providedCardListLayoutManager(Context context) {
-    return new MovieCardListLayoutManager(context);
   }
 }

@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.moviecardlist;
+package au.com.subash.cinepedia.nowplayingmovies;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import javax.inject.Inject;
 
-public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdapter.ViewHolder> {
+public class NowPlayingMoviesAdapter extends RecyclerView.Adapter<NowPlayingMoviesAdapter.ViewHolder> {
 
   private final LayoutInflater inflater;
   private final Context context;
@@ -30,13 +30,13 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
   private ItemClickListener listener;
 
   @Inject
-  public MovieCardListAdapter(Context context) {
+  public NowPlayingMoviesAdapter(Context context) {
     this.context = context;
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    final View view = inflater.inflate(R.layout.thumb_card, parent, false);
+    final View view = inflater.inflate(R.layout.now_playing_frag_thumb, parent, false);
 
     return new ViewHolder(view);
   }
@@ -44,11 +44,11 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     final MovieModel movieModel = movieModelList.get(position);
 
-    holder.rating.setText(String.valueOf(movieModel.getRating()));
+    // todo: set another text here
+    // holder.rating.setText(String.valueOf(movieModel.getRating()));
 
     String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
 
-    // TODO: use image loader instead of picasso
     Picasso
         .with(context)
         .load(imageUrl)

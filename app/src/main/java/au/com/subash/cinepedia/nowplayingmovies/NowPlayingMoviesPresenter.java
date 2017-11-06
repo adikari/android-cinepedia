@@ -1,7 +1,6 @@
 package au.com.subash.cinepedia.nowplayingmovies;
 
 import au.com.subash.cinepedia.movie.MovieModel;
-import au.com.subash.cinepedia.moviecardlist.MovieCardListContract;
 import au.com.subash.cinepedia.exception.DefaultErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorMessageFactory;
@@ -13,9 +12,9 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class NowPlayingMoviesPresenter implements MovieCardListContract.Presenter {
+public class NowPlayingMoviesPresenter implements NowPlayingMoviesContract.Presenter {
 
-  private MovieCardListContract.View view;
+  private NowPlayingMoviesContract.View view;
 
   private final UseCase getNowPlayingMovies;
   private final MovieModelDataMapper mapper;
@@ -27,7 +26,7 @@ public class NowPlayingMoviesPresenter implements MovieCardListContract.Presente
     this.mapper = mapper;
   }
 
-  public void setView(MovieCardListContract.View view) {
+  public void setView(NowPlayingMoviesContract.View view) {
     this.view = view;
   }
 

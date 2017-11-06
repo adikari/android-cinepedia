@@ -36,7 +36,7 @@ public class ComingSoonMoviesAdapter extends RecyclerView.Adapter<ComingSoonMovi
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    final View view = inflater.inflate(R.layout.thumb_card, parent, false);
+    final View view = inflater.inflate(R.layout.coming_soon_frag_thumb, parent, false);
 
     return new ViewHolder(view);
   }
