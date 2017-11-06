@@ -12,12 +12,12 @@ import au.com.subash.cinepedia.AndroidApplication;
 import au.com.subash.cinepedia.core.executor.UIThread;
 import au.com.subash.cinepedia.movies.MovieDataRepository;
 import au.com.subash.cinepedia.movies.MovieDataStore;
-import au.com.subash.cinepedia.movies.TmdDataRepository;
+import au.com.subash.cinepedia.movies.TmdMovieDataStore;
 import au.com.subash.cinepedia.movies.MovieRepository;
 import au.com.subash.cinepedia.moviedetail.MovieDetailDataRepository;
 import au.com.subash.cinepedia.moviedetail.MovieDetailDataStore;
 import au.com.subash.cinepedia.moviedetail.MovieDetailRepository;
-import au.com.subash.cinepedia.moviedetail.TmdMovieDetailStore;
+import au.com.subash.cinepedia.moviedetail.TmdMovieDetailDataStore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dagger.Module;
@@ -69,12 +69,12 @@ public class ApplicationModule {
     return movieDetailDataRepository;
   }
 
-  @Provides @Singleton MovieDataStore provideMovieDataStore(TmdDataRepository tmdDataRepository) {
-    return tmdDataRepository;
+  @Provides @Singleton MovieDataStore provideMovieDataStore(TmdMovieDataStore tmdMovieDataStore) {
+    return tmdMovieDataStore;
   }
 
-  @Provides @Singleton MovieDetailDataStore provideMovieDetailDataStore(TmdMovieDetailStore tmdMovieDetailStore) {
-    return tmdMovieDetailStore;
+  @Provides @Singleton MovieDetailDataStore provideMovieDetailDataStore(TmdMovieDetailDataStore tmdMovieDetailDataStore) {
+    return tmdMovieDetailDataStore;
   }
 
   @Provides @Singleton CastDataStore provideCastDataStore(TmdCastDataStore tmdCastDataStore) {

@@ -3,7 +3,9 @@ package au.com.subash.cinepedia.movies;
 import io.reactivex.Observable;
 import java.util.List;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class MovieDataRepository implements MovieRepository {
 
   private MovieDataStore dataStore;

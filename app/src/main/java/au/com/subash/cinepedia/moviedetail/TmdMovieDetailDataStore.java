@@ -2,14 +2,16 @@ package au.com.subash.cinepedia.moviedetail;
 
 import io.reactivex.Observable;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import retrofit2.Retrofit;
 
-public class TmdMovieDetailStore implements MovieDetailDataStore {
+@Singleton
+public class TmdMovieDetailDataStore implements MovieDetailDataStore {
 
   TmdMovieDetailService serivce;
 
   @Inject
-  public TmdMovieDetailStore(Retrofit retrofit) {
+  public TmdMovieDetailDataStore(Retrofit retrofit) {
     serivce = retrofit.create(TmdMovieDetailService.class);
   }
 

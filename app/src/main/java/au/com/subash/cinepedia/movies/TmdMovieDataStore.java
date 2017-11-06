@@ -3,14 +3,16 @@ package au.com.subash.cinepedia.movies;
 import io.reactivex.Observable;
 import java.util.List;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import retrofit2.Retrofit;
 
-public class TmdDataRepository implements MovieDataStore {
+@Singleton
+public class TmdMovieDataStore implements MovieDataStore {
 
   private TmdMovieService tmdMovieService;
 
   @Inject
-  public TmdDataRepository(Retrofit retrofit) {
+  public TmdMovieDataStore(Retrofit retrofit) {
     tmdMovieService = retrofit.create(TmdMovieService.class);
   }
 
