@@ -1,7 +1,5 @@
-package au.com.subash.cinepedia.movie.data;
+package au.com.subash.cinepedia.movie;
 
-import au.com.subash.cinepedia.movie.domain.Movie;
-import au.com.subash.cinepedia.movie.domain.MovieRepository;
 import io.reactivex.Observable;
 import java.util.List;
 import javax.inject.Inject;

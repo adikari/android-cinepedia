@@ -1,6 +1,5 @@
-package au.com.subash.cinepedia.movie.data;
+package au.com.subash.cinepedia.movie;
 
-import au.com.subash.cinepedia.movie.domain.Movie;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;

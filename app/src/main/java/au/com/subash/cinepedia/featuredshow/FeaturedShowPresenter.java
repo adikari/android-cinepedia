@@ -7,7 +7,7 @@ import au.com.subash.cinepedia.interactor.DefaultSubscriber;
 import au.com.subash.cinepedia.interactor.UseCase;
 import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.movie.MovieModelDataMapper;
-import au.com.subash.cinepedia.movie.domain.Movie;
+import au.com.subash.cinepedia.movie.Movie;
 import javax.inject.Inject;
 import javax.inject.Named;
 

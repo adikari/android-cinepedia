@@ -3,17 +3,12 @@ package au.com.subash.cinepedia.core.di.components;
 import android.content.Context;
 import au.com.subash.cinepedia.core.di.modules.ApplicationModule;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
-import au.com.subash.cinepedia.movie.data.MovieDataStore;
-import au.com.subash.cinepedia.movie.domain.MovieRepository;
+import au.com.subash.cinepedia.movie.MovieRepository;
 import au.com.subash.cinepedia.moviedetail.MovieDetailRepository;
 import au.com.subash.cinepedia.view.activity.BaseActivity;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
-import com.google.gson.Gson;
 import dagger.Component;
 import javax.inject.Singleton;
-import okhttp3.Cache;
-import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
 
 /**
  * A component whose lifetime is the life of the application.

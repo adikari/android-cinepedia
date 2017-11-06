@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.movie.data;
+package au.com.subash.cinepedia.movie;
 
 import io.reactivex.Observable;
 import java.util.List;
