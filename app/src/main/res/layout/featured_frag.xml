@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/tv_featured_title_textsize"
         android:padding="15dp"
+        android:textColor="?android:attr/textColorPrimary"
         />
 
   </android.support.constraint.ConstraintLayout>
