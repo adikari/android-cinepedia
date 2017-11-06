@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
+import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesContract;
 import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowContract;
@@ -11,6 +12,7 @@ import au.com.subash.cinepedia.featuredshow.FeaturedShowFragment;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.moviecardlist.MovieCardListContract;
+import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesContract;
 import au.com.subash.cinepedia.nowplayingmovies.NowPlayingMoviesFragment;
 import javax.inject.Inject;
 
@@ -18,7 +20,7 @@ import javax.inject.Inject;
  * Main application screen. This is the app entry point.
  */
 public class MainActivity extends BaseActivity implements HasComponent<MainActivityComponent>,
-    FeaturedShowContract.Listener, MovieCardListContract.Listener {
+    FeaturedShowContract.Listener, ComingSoonMoviesContract.Listener, NowPlayingMoviesContract.Listener {
 
   @Inject MainActivityComponent mainActivityComponent;
 
@@ -39,18 +41,9 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
   }
 
   private void initializeUI() {
-    initializeFeaturedShowFragment();
-    initializeNowPlayingFragment();
-    initializeComingSoonFragment();
-  }
-
-  private void initializeFeaturedShowFragment() {
     addFragment(R.id.fl_featured_show, FeaturedShowFragment.getInstance());
-  }
-
-  private void initializeComingSoonFragment() {
-    String title = getResources().getString(R.string.comingsoon_frag_title);
-    addFragment(R.id.fl_coming_soon_movies, ComingSoonMoviesFragment.getInstance(title));
+    initializeNowPlayingFragment();
+    addFragment(R.id.fl_coming_soon_movies, ComingSoonMoviesFragment.getInstance());
   }
 
   private void initializeNowPlayingFragment() {
@@ -72,5 +65,13 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
 
   @Override public void onMovieClicked(MovieModel movieModel) {
     navigator.navigateToMovieDetail(this, movieModel.getId());
+  }
+
+  @Override public void onViewAllComingSoonClicked() {
+
+  }
+
+  @Override public void onViewAllNowPlayingClicked() {
+
   }
 }

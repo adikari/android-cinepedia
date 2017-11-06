@@ -13,9 +13,9 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class ComingSoonMoviesPresenter implements MovieCardListContract.Presenter {
+public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Presenter {
 
-  private MovieCardListContract.View view;
+  private ComingSoonMoviesContract.View view;
 
   private final UseCase getComingSoonMovies;
   private final MovieModelDataMapper mapper;
@@ -27,7 +27,7 @@ public class ComingSoonMoviesPresenter implements MovieCardListContract.Presente
     this.mapper = mapper;
   }
 
-  public void setView(MovieCardListContract.View view) {
+  public void setView(ComingSoonMoviesContract.View view) {
     this.view = view;
   }
 
