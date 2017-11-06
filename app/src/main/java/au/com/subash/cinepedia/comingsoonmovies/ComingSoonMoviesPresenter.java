@@ -35,6 +35,10 @@ public class ComingSoonMoviesPresenter implements MovieCardListContract.Presente
     view.viewMovieDetail(movieModel);
   }
 
+  @Override public void onViewAllClicked() {
+    view.viewAllMovies();
+  }
+
   @Override public void resume() { }
 
   @Override public void pause() { }

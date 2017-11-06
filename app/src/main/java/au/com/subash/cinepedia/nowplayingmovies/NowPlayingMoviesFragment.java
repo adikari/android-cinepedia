@@ -32,4 +32,8 @@ public class NowPlayingMoviesFragment extends MovieCardListFragment implements M
   @Override public MovieCardListContract.Presenter getPresenter() {
     return presenter;
   }
+
+  @Override public void viewAllMovies() {
+    showToastMessage("view all now playing clicked");
+  }
 }

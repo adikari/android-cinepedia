@@ -3,6 +3,7 @@ package au.com.subash.cinepedia.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 import au.com.subash.cinepedia.comingsoonmovies.ComingSoonMoviesFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.featuredshow.FeaturedShowContract;

@@ -28,4 +28,8 @@ public class ComingSoonMoviesFragment extends MovieCardListFragment implements M
   @Override public MovieCardListContract.Presenter getPresenter() {
     return presenter;
   }
+
+  @Override public void viewAllMovies() {
+    showToastMessage("view all coming soon movies");
+  }
 }

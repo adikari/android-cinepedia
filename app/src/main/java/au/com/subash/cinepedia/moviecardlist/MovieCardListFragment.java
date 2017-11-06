@@ -23,6 +23,7 @@ public abstract class MovieCardListFragment extends BaseFragment implements Movi
 
   @BindView(R.id.rv_card_list) RecyclerView recyclerView;
   @BindView(R.id.tv_card_list_title) TextView titleView;
+  @BindView(R.id.tv_card_view_all) TextView viewAllView;
 
   protected static final String PARAM_TITLE = "com.au.subash.cinepedia.CARD_LIST_FRAG_TITLE_PARAM";
 
@@ -45,6 +46,8 @@ public abstract class MovieCardListFragment extends BaseFragment implements Movi
     unbinder = ButterKnife.bind(this, view);
 
     titleView.setText(fragmentTitle);
+
+    viewAllView.setOnClickListener(v -> getPresenter().onViewAllClicked());
 
     movieCardListAdapter.setItemClickListener(
         movieModel -> getPresenter().onMovieClicked(movieModel)

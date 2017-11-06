@@ -10,12 +10,14 @@ public interface MovieCardListContract {
   interface View extends LoadDataView {
     void renderMovies(List<MovieModel> movieModelList);
     void viewMovieDetail(MovieModel movieModel);
+    void viewAllMovies();
     Presenter getPresenter();
   }
 
   interface Presenter extends BasePresenter {
     void setView(MovieCardListContract.View view);
     void onMovieClicked(MovieModel movieModel);
+    void onViewAllClicked();
   }
 
   interface Listener {
