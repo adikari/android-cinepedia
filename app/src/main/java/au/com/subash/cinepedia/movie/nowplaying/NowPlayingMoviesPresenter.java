@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.comingsoonmovies;
+package au.com.subash.cinepedia.movie.nowplaying;
 
 import au.com.subash.cinepedia.movie.MovieModel;
 import au.com.subash.cinepedia.exception.DefaultErrorBundle;
@@ -12,21 +12,21 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Presenter {
+public class NowPlayingMoviesPresenter implements NowPlayingMoviesContract.Presenter {
 
-  private ComingSoonMoviesContract.View view;
+  private NowPlayingMoviesContract.View view;
 
-  private final UseCase getComingSoonMovies;
+  private final UseCase getNowPlayingMovies;
   private final MovieModelDataMapper mapper;
 
   @Inject
-  public ComingSoonMoviesPresenter(@Named("getComingSoonMovies")UseCase getComingSoonMovies,
+  public NowPlayingMoviesPresenter(@Named("getNowPlayingMovies")UseCase getNowPlayingMovies,
       MovieModelDataMapper mapper) {
-    this.getComingSoonMovies = getComingSoonMovies;
+    this.getNowPlayingMovies = getNowPlayingMovies;
     this.mapper = mapper;
   }
 
-  public void setView(ComingSoonMoviesContract.View view) {
+  public void setView(NowPlayingMoviesContract.View view) {
     this.view = view;
   }
 
@@ -43,12 +43,12 @@ public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Prese
   @Override public void pause() { }
 
   @Override public void destroy() {
+    getNowPlayingMovies.unsubscribe();
     view = null;
-    getComingSoonMovies.unsubscribe();
   }
 
   @Override public void initialize() {
-    getComingSoonMovies.execute(new GetComingSoonMoviesSubscriber());
+    getNowPlayingMovies.execute(new NowPlayingMoviesSubscriber());
   }
 
   private void showViewLoading() {
@@ -69,32 +69,31 @@ public class ComingSoonMoviesPresenter implements ComingSoonMoviesContract.Prese
 
   private void showErrorMessage(ErrorBundle errorBundle) {
     String message = ErrorMessageFactory.create(view.context(), errorBundle.getException());
-
     view.showError(message);
   }
 
-  private void showMoviesInView(List<Movie> movies) {
+  private void showNowPlayingMoviesInView(List<Movie> movies) {
     view.renderMovies(mapper.transform(movies));
   }
 
-  private class GetComingSoonMoviesSubscriber extends DefaultSubscriber<List<Movie>> {
+  private class NowPlayingMoviesSubscriber extends DefaultSubscriber<List<Movie>> {
     @Override public void onStart() {
-      ComingSoonMoviesPresenter.this.hideViewRetry();
-      ComingSoonMoviesPresenter.this.showViewLoading();
+      NowPlayingMoviesPresenter.this.hideViewRetry();
+      NowPlayingMoviesPresenter.this.showViewLoading();
     }
 
     @Override public void onComplete() {
-      ComingSoonMoviesPresenter.this.hideViewLoading();
+      NowPlayingMoviesPresenter.this.hideViewLoading();
     }
 
     @Override public void onError(Throwable e) {
-      ComingSoonMoviesPresenter.this.hideViewLoading();
-      ComingSoonMoviesPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
-      ComingSoonMoviesPresenter.this.showViewRetry();
+      NowPlayingMoviesPresenter.this.hideViewLoading();
+      NowPlayingMoviesPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
+      NowPlayingMoviesPresenter.this.showViewRetry();
     }
 
     @Override public void onNext(List<Movie> movies) {
-      ComingSoonMoviesPresenter.this.showMoviesInView(movies);
+      NowPlayingMoviesPresenter.this.showNowPlayingMoviesInView(movies);
     }
   }
 }

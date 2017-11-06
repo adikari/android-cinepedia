@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.comingsoonmovies;
+package au.com.subash.cinepedia.movie.comingsoon;
 
 import android.content.Context;
 import android.os.Bundle;

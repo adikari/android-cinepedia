@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.nowplayingmovies;
+package au.com.subash.cinepedia.movie.nowplaying;
 
 import android.content.Context;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.comingsoonmovies;
+package au.com.subash.cinepedia.movie.nowplaying;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import javax.inject.Inject;
 
-public class ComingSoonMoviesAdapter extends RecyclerView.Adapter<ComingSoonMoviesAdapter.ViewHolder> {
+public class NowPlayingMoviesAdapter extends RecyclerView.Adapter<NowPlayingMoviesAdapter.ViewHolder> {
 
   private final LayoutInflater inflater;
   private final Context context;
@@ -30,13 +30,13 @@ public class ComingSoonMoviesAdapter extends RecyclerView.Adapter<ComingSoonMovi
   private ItemClickListener listener;
 
   @Inject
-  public ComingSoonMoviesAdapter(Context context) {
+  public NowPlayingMoviesAdapter(Context context) {
     this.context = context;
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    final View view = inflater.inflate(R.layout.coming_soon_frag_thumb, parent, false);
+    final View view = inflater.inflate(R.layout.now_playing_frag_thumb, parent, false);
 
     return new ViewHolder(view);
   }
@@ -44,7 +44,7 @@ public class ComingSoonMoviesAdapter extends RecyclerView.Adapter<ComingSoonMovi
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     final MovieModel movieModel = movieModelList.get(position);
 
-    holder.releaseDate.setText(movieModel.getReleaseDate());
+    holder.rating.setText(String.valueOf(movieModel.getRating()));
 
     String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
 
@@ -82,7 +82,7 @@ public class ComingSoonMoviesAdapter extends RecyclerView.Adapter<ComingSoonMovi
   }
 
   class ViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.release_date) TextView releaseDate;
+    @BindView(R.id.rating) TextView rating;
     @BindView(R.id.thumbnail) ImageView thumbnail;
 
     ViewHolder(View itemView) {
