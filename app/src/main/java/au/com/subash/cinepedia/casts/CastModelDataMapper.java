@@ -9,7 +9,7 @@ public class CastModelDataMapper {
   @Inject
   public CastModelDataMapper() { }
 
-  public static CastModel transform(Cast cast) {
+  public CastModel transform(Cast cast) {
     CastModel castModel = null;
 
     if (null != cast) {
@@ -26,7 +26,7 @@ public class CastModelDataMapper {
     return castModel;
   }
 
-  public static List<CastModel> transform(List<Cast> castList) {
+  public List<CastModel> transform(List<Cast> castList) {
     List<CastModel> castModelList = new ArrayList<>();
 
     if (castList != null && !castList.isEmpty()) {
