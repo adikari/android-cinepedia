@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import au.com.subash.cinepedia.R;
+import au.com.subash.cinepedia.casts.CastScrollFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.view.activity.BaseActivity;
 import javax.inject.Inject;
@@ -43,7 +44,9 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
   private void initializeActivity(Bundle savedInstanceState) {
     if (null == savedInstanceState) {
       movieId = getIntent().getIntExtra(INTENT_EXTRA_PARAM_MOVIE_ID, -1);
+
       addFragment(R.id.fl_movie_detail, MovieDetailFragment.getInstance());
+      addFragment(R.id.fl_cast_scroll, CastScrollFragment.getInstance());
     } else {
       movieId = savedInstanceState.getInt(INSTANCE_STATE_PARAM_MOVIE_ID);
     }

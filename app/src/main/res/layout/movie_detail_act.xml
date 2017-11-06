@@ -17,6 +17,15 @@
       app:layout_constraintLeft_toLeftOf="parent"
       />
 
+  <FrameLayout
+      android:id="@+id/fl_cast_scroll"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/fl_movie_detail"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      />
+
 </android.support.constraint.ConstraintLayout>
 
 
