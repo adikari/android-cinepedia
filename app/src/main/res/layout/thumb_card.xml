@@ -20,7 +20,9 @@
           android:layout_width="match_parent"
           android:layout_height="@dimen/thumb_cover_height"
           android:clickable="true"
-          android:scaleType="centerCrop" />
+          android:scaleType="centerCrop"
+          android:contentDescription="@string/movie_thumbnail_description"
+          />
 
       <TextView
           android:id="@+id/rating"
@@ -30,6 +32,7 @@
           android:paddingTop="@dimen/rating_padding_top"
           android:paddingBottom="@dimen/rating_padding_bottom"
           android:paddingLeft="@dimen/rating_padding_left"
+          android:paddingStart="@dimen/rating_padding_left"
           android:textSize="@dimen/rating" />
 
     </RelativeLayout>

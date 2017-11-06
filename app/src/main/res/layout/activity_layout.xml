@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="au.com.subash.cinepedia.view.activity.MainActivity"
-    >
+    android:fillViewport="true">
 
-  <FrameLayout
-      android:id="@+id/fl_featured_show"
+  <android.support.constraint.ConstraintLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      />
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      tools:context="au.com.subash.cinepedia.view.activity.MainActivity"
+      >
 
-  <FrameLayout
-      android:id="@+id/fl_now_playing_movies"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/fl_featured_show"
-      />
+      <FrameLayout
+          android:id="@+id/fl_featured_show"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintLeft_toLeftOf="parent"
+          />
 
-  <FrameLayout
-      android:id="@+id/fl_coming_soon_movies"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/fl_now_playing_movies"
-      />
-</android.support.constraint.ConstraintLayout>
+      <FrameLayout
+          android:id="@+id/fl_now_playing_movies"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/fl_featured_show"
+          />
+
+      <FrameLayout
+          android:id="@+id/fl_coming_soon_movies"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/fl_now_playing_movies"
+          />
+  </android.support.constraint.ConstraintLayout>
+</ScrollView>
 
 
