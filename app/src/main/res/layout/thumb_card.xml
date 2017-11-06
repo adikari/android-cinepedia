@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/card_width"
     android:layout_height="wrap_content">
 
   <android.support.v7.widget.CardView
@@ -23,25 +23,14 @@
           android:scaleType="centerCrop" />
 
       <TextView
-          android:id="@+id/title"
+          android:id="@+id/rating"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_below="@id/thumbnail"
-          android:paddingLeft="@dimen/thumb_title_padding"
-          android:paddingRight="@dimen/thumb_title_padding"
-          android:paddingTop="@dimen/thumb_title_padding"
-          android:textColor="@color/thumb_title"
-          android:textSize="@dimen/thumb_title" />
-
-      <TextView
-          android:id="@+id/popularity"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/title"
-          android:paddingBottom="@dimen/songs_count_padding_bottom"
-          android:paddingLeft="@dimen/thumb_title_padding"
-          android:paddingRight="@dimen/thumb_title_padding"
-          android:textSize="@dimen/songs_count" />
+          android:paddingTop="@dimen/rating_padding_top"
+          android:paddingBottom="@dimen/rating_padding_bottom"
+          android:paddingLeft="@dimen/rating_padding_left"
+          android:textSize="@dimen/rating" />
 
     </RelativeLayout>
 

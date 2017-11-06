@@ -44,8 +44,7 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     final MovieModel movieModel = movieModelList.get(position);
 
-    holder.title.setText(movieModel.getTitle());
-    holder.popularity.setText(String.valueOf(movieModel.getRating()));
+    holder.rating.setText(String.valueOf(movieModel.getRating()));
 
     String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
 
@@ -84,8 +83,7 @@ public class MovieCardListAdapter extends RecyclerView.Adapter<MovieCardListAdap
   }
 
   class ViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.title) TextView title;
-    @BindView(R.id.popularity) TextView popularity;
+    @BindView(R.id.rating) TextView rating;
     @BindView(R.id.thumbnail) ImageView thumbnail;
 
     ViewHolder(View itemView) {
