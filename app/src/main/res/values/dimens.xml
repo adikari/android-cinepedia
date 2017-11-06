@@ -27,4 +27,7 @@
   <dimen name="ic_thumb_overflow_margin_top">10dp</dimen>
   <dimen name="iv_featured_image_height">250dp</dimen>
   <dimen name="tv_featured_title_textsize">18sp</dimen>
+  <dimen name="card_large_margin">20dp</dimen>
+  <dimen name="card_small_margin">10dp</dimen>
+  <dimen name="card_thumb_margin">10dp</dimen>
 </resources>
