@@ -6,16 +6,16 @@ import au.com.subash.cinepedia.moviecardlist.MovieCardListFragment;
 import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import javax.inject.Inject;
 
-public class NowPlayingMoviesFragmentMovie extends MovieCardListFragment implements MovieCardListContract.View {
+public class NowPlayingMoviesFragment extends MovieCardListFragment implements MovieCardListContract.View {
 
   @Inject NowPlayingMoviesPresenter presenter;
 
-  public NowPlayingMoviesFragmentMovie() {
+  public NowPlayingMoviesFragment() {
     setRetainInstance(true);
   }
 
-  public static NowPlayingMoviesFragmentMovie getInstance() {
-    return new NowPlayingMoviesFragmentMovie();
+  public static NowPlayingMoviesFragment getInstance() {
+    return new NowPlayingMoviesFragment();
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
