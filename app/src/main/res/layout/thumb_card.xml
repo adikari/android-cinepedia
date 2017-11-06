@@ -9,6 +9,7 @@
       android:layout_height="match_parent"
       android:layout_gravity="center"
       android:layout_margin="@dimen/card_margin"
+      card_view:cardUseCompatPadding="false"
       card_view:cardCornerRadius="@dimen/card_thumb_radius">
 
     <RelativeLayout
@@ -19,7 +20,6 @@
           android:id="@+id/thumbnail"
           android:layout_width="match_parent"
           android:layout_height="@dimen/thumb_cover_height"
-          android:clickable="true"
           android:scaleType="centerCrop"
           android:contentDescription="@string/movie_thumbnail_description"
           />
