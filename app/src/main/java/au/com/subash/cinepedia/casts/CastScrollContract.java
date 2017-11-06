@@ -16,6 +16,6 @@ class CastScrollContract {
   }
 
   interface Listener {
-
+    void onCastClicked(CastModel castModel);
   }
 }

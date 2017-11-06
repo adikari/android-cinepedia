@@ -5,6 +5,7 @@ import au.com.subash.cinepedia.exception.ErrorMessageFactory;
 import au.com.subash.cinepedia.interactor.DefaultSubscriber;
 import au.com.subash.cinepedia.interactor.UseCase;
 import java.util.List;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 public class CastScrollPresenter implements CastScrollContract.Presenter {
@@ -14,13 +15,18 @@ public class CastScrollPresenter implements CastScrollContract.Presenter {
 
   private CastScrollContract.View view;
 
+  @Inject
   CastScrollPresenter(@Named("getCasts") UseCase getCasts, CastModelDataMapper mapper) {
     this.getCasts = getCasts;
     this.mapper = mapper;
   }
 
-  public void setView(CastScrollContract.View view) {
+  void setView(CastScrollContract.View view) {
     this.view = view;
+  }
+
+  void onCastClicked(CastModel castModel) {
+    view.viewCast(castModel);
   }
 
   @Override public void resume() { }

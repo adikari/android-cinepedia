@@ -17,7 +17,7 @@ class MovieDetailModule {
   }
 
   @Provides @PerActivity @Named("getMovieDetail") UseCase
-  provideGetMovieDetailUserCase(MovieDetailRepository repository,
+  provideGetMovieDetailUseCase(MovieDetailRepository repository,
       ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
     return new GetMovieDetail(movieId, repository, threadExecutor, postExecutionThread);
   }

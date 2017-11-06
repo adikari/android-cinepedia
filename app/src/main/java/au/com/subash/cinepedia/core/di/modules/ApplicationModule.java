@@ -1,6 +1,10 @@
 package au.com.subash.cinepedia.core.di.modules;
 
 import android.content.Context;
+import au.com.subash.cinepedia.casts.CastDataRepository;
+import au.com.subash.cinepedia.casts.CastDataStore;
+import au.com.subash.cinepedia.casts.CastRepository;
+import au.com.subash.cinepedia.casts.TmdCastDataStore;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;
 import au.com.subash.cinepedia.core.executor.JobExecutor;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
@@ -71,6 +75,14 @@ public class ApplicationModule {
 
   @Provides @Singleton MovieDetailDataStore provideMovieDetailDataStore(TmdMovieDetailStore tmdMovieDetailStore) {
     return tmdMovieDetailStore;
+  }
+
+  @Provides @Singleton CastDataStore provideCastDataStore(TmdCastDataStore tmdCastDataStore) {
+    return tmdCastDataStore;
+  }
+
+  @Provides @Singleton CastRepository provideCastDataRepository(CastDataRepository castDataRepository) {
+    return castDataRepository;
   }
 
   @Provides @Singleton Gson provideGson() {
