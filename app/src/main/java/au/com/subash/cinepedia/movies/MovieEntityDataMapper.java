@@ -3,7 +3,9 @@ package au.com.subash.cinepedia.movies;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 class MovieEntityDataMapper {
 
   @Inject MovieEntityDataMapper() { }
