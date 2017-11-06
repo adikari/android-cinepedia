@@ -13,7 +13,8 @@
   <dimen name="detail_backdrop_height">250dp</dimen>
   <dimen name="backdrop_title">20sp</dimen>
   <dimen name="backdrop_subtitle">18dp</dimen>
-  <dimen name="card_margin">5dp</dimen>
+  <dimen name="card_margin_horizontal">5dp</dimen>
+  <dimen name="card_margin_vertical">10dp</dimen>
   <dimen name="card_width">170dp</dimen>
   <dimen name="card_thumb_radius">0dp</dimen>
   <dimen name="thumb_cover_height">240dp</dimen>
