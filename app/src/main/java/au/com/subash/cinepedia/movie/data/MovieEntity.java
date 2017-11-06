@@ -28,6 +28,9 @@ public class MovieEntity {
   @SerializedName("vote_average")
   private double rating;
 
+  @SerializedName("release_date")
+  private String releaseDate;
+
   MovieEntity() { }
 
   public int getId() {
@@ -80,5 +83,13 @@ public class MovieEntity {
 
   public void setRating(double rating) {
     this.rating = rating;
+  }
+
+  public String getReleaseDate() {
+    return releaseDate;
+  }
+
+  public void setReleaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
   }
 }

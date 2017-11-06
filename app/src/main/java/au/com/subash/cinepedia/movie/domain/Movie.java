@@ -12,6 +12,7 @@ public class Movie {
   private String imageUrl;
   private double popularity;
   private double rating;
+  private String releaseDate;
 
   public Movie(int id) {
     this.id = id;
@@ -67,5 +68,13 @@ public class Movie {
 
   public void setRating(double rating) {
     this.rating = rating;
+  }
+
+  public String getReleaseDate() {
+    return releaseDate;
+  }
+
+  public void setReleaseDate(String releaseDate) {
+    this.releaseDate = releaseDate;
   }
 }

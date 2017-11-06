@@ -32,6 +32,7 @@ public class MovieModelDataMapper {
       movieModel.setImageUrl(movie.getImageUrl());
       movieModel.setPopularity(movie.getPopularity());
       movieModel.setRating(movie.getRating());
+      movieModel.setReleaseDate(movie.getReleaseDate());
     }
 
     return movieModel;

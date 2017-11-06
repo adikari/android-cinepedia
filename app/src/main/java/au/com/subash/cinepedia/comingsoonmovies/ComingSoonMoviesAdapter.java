@@ -44,7 +44,7 @@ public class ComingSoonMoviesAdapter extends RecyclerView.Adapter<ComingSoonMovi
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     final MovieModel movieModel = movieModelList.get(position);
 
-    holder.rating.setText(String.valueOf(movieModel.getRating()));
+    holder.releaseDate.setText(movieModel.getReleaseDate());
 
     String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
 
@@ -82,7 +82,7 @@ public class ComingSoonMoviesAdapter extends RecyclerView.Adapter<ComingSoonMovi
   }
 
   class ViewHolder extends RecyclerView.ViewHolder {
-    @BindView(R.id.rating) TextView rating;
+    @BindView(R.id.release_date) TextView releaseDate;
     @BindView(R.id.thumbnail) ImageView thumbnail;
 
     ViewHolder(View itemView) {

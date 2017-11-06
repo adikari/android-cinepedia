@@ -44,8 +44,7 @@ public class NowPlayingMoviesAdapter extends RecyclerView.Adapter<NowPlayingMovi
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
     final MovieModel movieModel = movieModelList.get(position);
 
-    // todo: set another text here
-    // holder.rating.setText(String.valueOf(movieModel.getRating()));
+    holder.rating.setText(String.valueOf(movieModel.getRating()));
 
     String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
 
