@@ -5,12 +5,12 @@ import au.com.subash.cinepedia.core.executor.ThreadExecutor;
 import au.com.subash.cinepedia.interactor.UseCase;
 import io.reactivex.Observable;
 
-public class GetCasts extends UseCase {
+public class GetTopBilledCasts extends UseCase {
 
   private final CastRepository repository;
   private final int movieId;
 
-  public GetCasts(int movieId, CastRepository repository, ThreadExecutor threadExecutor,
+  public GetTopBilledCasts(int movieId, CastRepository repository, ThreadExecutor threadExecutor,
       PostExecutionThread postExecutionThread) {
     super(threadExecutor, postExecutionThread);
 

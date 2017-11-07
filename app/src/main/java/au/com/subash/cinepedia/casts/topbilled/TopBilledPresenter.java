@@ -13,13 +13,14 @@ import javax.inject.Named;
 
 public class TopBilledPresenter implements TopBilledContract.Presenter {
 
-  private final UseCase getCasts;
+  private final UseCase getTopBilledCasts;
   private final CastModelDataMapper mapper;
 
   private TopBilledContract.View view;
 
-  @Inject TopBilledPresenter(@Named("getCasts") UseCase getCasts, CastModelDataMapper mapper) {
-    this.getCasts = getCasts;
+  @Inject TopBilledPresenter(@Named("getTopBilledCasts") UseCase getTopBilledCasts,
+      CastModelDataMapper mapper) {
+    this.getTopBilledCasts = getTopBilledCasts;
     this.mapper = mapper;
   }
 
@@ -37,13 +38,13 @@ public class TopBilledPresenter implements TopBilledContract.Presenter {
 
   @Override public void destroy() {
     view = null;
-    getCasts.unsubscribe();
+    getTopBilledCasts.unsubscribe();
   }
 
   @Override public void initialize() {
     hideViewRetry();
     showViewLoading();
-    getCasts.execute(new GetCastSubscriber());
+    getTopBilledCasts.execute(new GetCastSubscriber());
   }
 
   private void showViewLoading() {
