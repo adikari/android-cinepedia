@@ -30,9 +30,9 @@
           android:layout_height="wrap_content"
           android:layout_below="@id/iv_top_billed_thumbnail"
           android:paddingTop="@dimen/rating_padding_top"
-          android:paddingBottom="@dimen/rating_padding_bottom"
           android:paddingLeft="@dimen/rating_padding_left"
           android:paddingStart="@dimen/rating_padding_left"
+          android:textStyle="bold"
           android:textSize="@dimen/rating" />
 
       <TextView
@@ -40,7 +40,6 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_below="@id/tv_top_billed_artist_name"
-          android:paddingTop="@dimen/rating_padding_top"
           android:paddingBottom="@dimen/rating_padding_bottom"
           android:paddingLeft="@dimen/rating_padding_left"
           android:paddingStart="@dimen/rating_padding_left"
