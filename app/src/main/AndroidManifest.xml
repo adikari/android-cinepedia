@@ -28,6 +28,11 @@
         android:label="@string/activity_title_movie_detail"
         >
     </activity>
+    <activity
+        android:name=".movies.nowplaying.NowPlayingActivity"
+        android:label="@string/activity_title_nowplaying_list"
+        >
+    </activity>
   </application>
 
 </manifest>

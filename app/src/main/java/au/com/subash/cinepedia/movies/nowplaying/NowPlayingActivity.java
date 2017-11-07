@@ -21,6 +21,7 @@ public class NowPlayingActivity extends BaseActivity implements HasComponent<Now
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    setContentView(R.layout.now_playing_list_act);
 
     initializeInjector();
 
@@ -38,7 +39,7 @@ public class NowPlayingActivity extends BaseActivity implements HasComponent<Now
   }
 
   private void initializeUI() {
-    addFragment(R.layout.now_playing_list_act, NowPlayingListFragment.getInstance());
+    addFragment(R.id.fl_now_playing_list, NowPlayingListFragment.getInstance());
   }
 
   private void initializeInjector() {

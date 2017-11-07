@@ -32,4 +32,5 @@
   <string name="cardlist_frag_view_all">View all</string>
   <string name="top_billed_cast_title">Top-Billed Cast</string>
   <string name="top_billed_thumbnail_description">Top billed artist thumbnail</string>
+  <string name="activity_title_nowplaying_list">Now Playing Movies</string>
 </resources>
