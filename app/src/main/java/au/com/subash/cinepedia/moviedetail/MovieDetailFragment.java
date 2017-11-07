@@ -22,11 +22,7 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
 
   @BindView(R.id.tv_movie_detail_title) TextView title;
   @BindView(R.id.iv_movie_detail_image) ImageView backdropImage;
-  @BindView(R.id.tv_movie_detail_overview) TextView tvOverview;
-  @BindView(R.id.tv_movie_release_date) TextView releaseDate;
-  @BindView(R.id.tv_movie_runtime) TextView runtime;
-  @BindView(R.id.tv_movie_status) TextView status;
-  @BindView(R.id.tv_movie_rating) TextView rating;
+  @BindView(R.id.tv_movie_detail_overview) TextView overview;
 
   private Unbinder unbinder;
 
@@ -100,11 +96,7 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
     Picasso.with(context()).load(imageUrl).into(backdropImage);
 
     title.setText(movieDetailModel.getTitle());
-    tvOverview.setText(movieDetailModel.getOverview());
-    status.setText(movieDetailModel.getStatus());
-    rating.setText(String.valueOf(movieDetailModel.getRating()));
-    runtime.setText(movieDetailModel.getRuntime());
-    releaseDate.setText(movieDetailModel.getReleaseDate());
+    overview.setText(movieDetailModel.getOverview());
   }
 
   @Override public void showLoading() { }
