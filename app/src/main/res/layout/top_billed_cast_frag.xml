@@ -42,6 +42,7 @@
       android:paddingStart="@dimen/card_thumb_margin"
       android:paddingRight="@dimen/card_thumb_margin"
       android:paddingEnd="@dimen/card_thumb_margin"
+      android:paddingBottom="@dimen/top_billed_card_padding_bottom"
       android:clipToPadding="false"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"

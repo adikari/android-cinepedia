@@ -30,4 +30,5 @@
   <dimen name="card_large_margin">20dp</dimen>
   <dimen name="card_small_margin">10dp</dimen>
   <dimen name="card_thumb_margin">10dp</dimen>
+  <dimen name="top_billed_card_padding_bottom">30dp</dimen>
 </resources>

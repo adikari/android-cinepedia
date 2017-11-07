@@ -3,6 +3,7 @@ package au.com.subash.cinepedia.moviedetail;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.casts.CastModel;
 import au.com.subash.cinepedia.casts.topbilled.TopBilledContract;
@@ -68,6 +69,6 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
   }
 
   @Override public void onCastClicked(CastModel castModel) {
-
+    Toast.makeText(this, "TODO: View cast " + castModel.getName(), Toast.LENGTH_SHORT).show();
   }
 }
