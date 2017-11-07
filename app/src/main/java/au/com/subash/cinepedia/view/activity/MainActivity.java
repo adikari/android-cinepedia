@@ -3,6 +3,8 @@ package au.com.subash.cinepedia.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import au.com.subash.cinepedia.movies.comingsoon.ComingSoonMoviesContract;
 import au.com.subash.cinepedia.movies.comingsoon.ComingSoonMoviesFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
@@ -35,6 +37,20 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
 
     if (null == savedInstanceState) {
       initializeUI();
+    }
+  }
+
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.main_menu, menu);
+    return true;
+  }
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.main_menu_more:
+        navigator.navigateToNowPlayingList(this);
+      default:
+        return super.onOptionsItemSelected(item);
     }
   }
 
