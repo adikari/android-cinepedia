@@ -2,6 +2,7 @@ package au.com.subash.cinepedia.casts.topbilled;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.casts.CastModel;
 import au.com.subash.cinepedia.moviedetail.MovieDetailComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import java.util.List;
@@ -17,6 +19,9 @@ import javax.inject.Inject;
 public class TopBilledFragment extends BaseFragment implements TopBilledContract.View {
 
   @Inject TopBilledPresenter presenter;
+  @Inject TopBilledAdapter topBilledAdapter;
+
+  @BindView(R.id.rv_top_billed_list) RecyclerView recyclerView;
 
   private TopBilledContract.Listener listener;
   private Unbinder unbinder;
@@ -47,7 +52,10 @@ public class TopBilledFragment extends BaseFragment implements TopBilledContract
 
     unbinder = ButterKnife.bind(this, view);
 
-    // set up adapter here
+    topBilledAdapter.setItemClickListener(castModel -> presenter.onCastClicked(castModel));
+
+    recyclerView.setLayoutManager(new TopBilledLayoutManager(context()));
+    recyclerView.setAdapter(topBilledAdapter);
 
     return view;
   }
@@ -88,7 +96,7 @@ public class TopBilledFragment extends BaseFragment implements TopBilledContract
   }
 
   @Override public void renderCasts(List<CastModel> castModelList) {
-
+    topBilledAdapter.setCastsList(castModelList);
   }
 
   @Override public void viewCast(CastModel castModel) {
