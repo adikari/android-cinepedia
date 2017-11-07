@@ -91,11 +91,9 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
       return;
     }
 
-    String imageUrl = TmdImage.getImageUrl(movieDetailModel.getImageUrl(), 185);
+    String imageUrl = TmdImage.getImageUrl(movieDetailModel.getBackdropPath(), 500);
 
-    Picasso.with(context())
-        .load(imageUrl)
-        .into(ivImage);
+    Picasso.with(context()).load(imageUrl).into(ivImage);
 
     tvTitle.setText(movieDetailModel.getTitle());
     tvOverview.setText(movieDetailModel.getOverview());

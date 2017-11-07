@@ -41,6 +41,9 @@ public class MovieDetailEntity {
   @SerializedName("tagline")
   private String tagline;
 
+  @SerializedName("backdrop_path")
+  private String backdropPath;
+
   public MovieDetailEntity() { }
 
   public int getId() {
@@ -145,5 +148,13 @@ public class MovieDetailEntity {
 
   public void setTagline(String tagline) {
     this.tagline = tagline;
+  }
+
+  public String getBackdropPath() {
+    return backdropPath;
+  }
+
+  public void setBackdropPath(String backdropPath) {
+    this.backdropPath = backdropPath;
   }
 }

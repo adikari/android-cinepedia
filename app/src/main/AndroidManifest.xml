@@ -27,6 +27,11 @@
         android:name=".moviedetail.MovieDetailActivity"
         android:label="@string/activity_title_movie_detail"
         >
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
     </activity>
     <activity
         android:name=".movies.nowplaying.NowPlayingActivity"

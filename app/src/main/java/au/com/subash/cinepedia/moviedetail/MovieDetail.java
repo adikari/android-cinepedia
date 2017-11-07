@@ -14,6 +14,7 @@ public class MovieDetail {
   private int runtime;
   private String title;
   private String tagline;
+  private String backdropPath;
 
   public MovieDetail(int id) {
     this.id = id;
@@ -121,5 +122,13 @@ public class MovieDetail {
 
   public void setTagline(String tagline) {
     this.tagline = tagline;
+  }
+
+  public String getBackdropPath() {
+    return backdropPath;
+  }
+
+  public void setBackdropPath(String backdropPath) {
+    this.backdropPath = backdropPath;
   }
 }

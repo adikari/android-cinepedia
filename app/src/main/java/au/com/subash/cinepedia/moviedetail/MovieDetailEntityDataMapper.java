@@ -41,6 +41,7 @@ public class MovieDetailEntityDataMapper {
       movieDetail.setRuntime(movieDetailEntity.getRuntime());
       movieDetail.setTitle(movieDetailEntity.getTitle());
       movieDetail.setTagline(movieDetailEntity.getTagline());
+      movieDetail.setBackdropPath(movieDetailEntity.getBackdropPath());
     }
 
     return  movieDetail;

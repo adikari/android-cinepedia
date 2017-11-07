@@ -40,6 +40,7 @@ class MovieDetailModelDataMapper {
       movieDetailModel.setRuntime(movieDetail.getRuntime());
       movieDetailModel.setTitle(movieDetail.getTitle());
       movieDetailModel.setTagline(movieDetail.getTagline());
+      movieDetailModel.setBackdropPath(movieDetail.getBackdropPath());
     }
 
     return movieDetailModel;
