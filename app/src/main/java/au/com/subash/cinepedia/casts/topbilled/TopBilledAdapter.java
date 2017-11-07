@@ -34,7 +34,7 @@ public class TopBilledAdapter extends RecyclerView.Adapter<TopBilledAdapter.View
     inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
   }
 
-  public void setCastsList(List<CastModel> castList) {
+  void setCastsList(List<CastModel> castList) {
     if (null == castList)  {
       throw new IllegalArgumentException("Cast list cannot be null");
     }
