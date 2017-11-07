@@ -3,6 +3,7 @@ package au.com.subash.cinepedia.navigation;
 import android.content.Context;
 import android.content.Intent;
 import au.com.subash.cinepedia.moviedetail.MovieDetailActivity;
+import au.com.subash.cinepedia.movies.nowplaying.NowPlayingActivity;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -14,6 +15,13 @@ public class Navigator {
 
   @Inject
   public Navigator() { }
+
+  public void navigateToNowPlayingList(Context context) {
+    if (null != context) {
+      Intent intentToLaunch = NowPlayingActivity.getCallingIntent(context);
+      context.startActivity(intentToLaunch);
+    }
+  }
 
   /**
    * Navigate to movie detail screen

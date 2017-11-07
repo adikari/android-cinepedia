@@ -65,6 +65,6 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
   }
 
   @Override public void onViewAllNowPlayingClicked() {
-
+    navigator.navigateToNowPlayingList(this);
   }
 }

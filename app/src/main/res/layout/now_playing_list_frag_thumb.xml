@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/card_width"
+    android:layout_height="wrap_content">
+
+  <android.support.v7.widget.CardView
+      android:id="@+id/cv_now_playing_list_thumb"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_gravity="center"
+      android:layout_margin="@dimen/card_margin_horizontal"
+      card_view:cardUseCompatPadding="false"
+      card_view:cardCornerRadius="@dimen/card_thumb_radius">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <ImageView
+          android:id="@+id/iv_now_playing_list_thumbnail"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/thumb_cover_height"
+          android:scaleType="centerCrop"
+          android:contentDescription="@string/top_billed_thumbnail_description"
+          />
+
+      <TextView
+          android:id="@+id/tv_now_playing_thumb_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/iv_now_playing_list_thumbnail"
+          android:paddingTop="@dimen/rating_padding_top"
+          android:paddingLeft="@dimen/rating_padding_left"
+          android:paddingStart="@dimen/rating_padding_left"
+          android:textStyle="bold"
+          android:textSize="@dimen/rating" />
+    </RelativeLayout>
+
+  </android.support.v7.widget.CardView>
+
+</LinearLayout>

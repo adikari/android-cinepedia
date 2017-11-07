@@ -1,53 +1,49 @@
-package au.com.subash.cinepedia.featuredshow;
+package au.com.subash.cinepedia.movies.nowplaying;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.movies.MovieModel;
-import au.com.subash.cinepedia.util.TmdImage;
-import au.com.subash.cinepedia.view.activity.MainActivityComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import com.squareup.picasso.Picasso;
+import java.util.List;
 import javax.inject.Inject;
 
-public class FeaturedShowFragment extends BaseFragment implements FeaturedShowContract.View {
+public class NowPlayingListFragment extends BaseFragment implements NowPlayingListContract.View {
 
-  @Inject FeaturedShowPresenter presenter;
+  @Inject NowPlayingListPresenter presenter;
+  @Inject NowPlayingListAdapter adapter;
 
-  @BindView(R.id.iv_featured_image) ImageView featuredImage;
-  @BindView(R.id.tv_featured_title) TextView title;
+  @BindView(R.id.rv_now_playing_list) RecyclerView recyclerView;
 
+  private NowPlayingListContract.Listener listener;
   private Unbinder unbinder;
-  private FeaturedShowContract.Listener listener;
 
-  public FeaturedShowFragment() {
-    setRetainInstance(true);
-  }
-
-  public static Fragment getInstance() {
-    return new FeaturedShowFragment();
+  public static NowPlayingListFragment getInstance() {
+    return new NowPlayingListFragment();
   }
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    this.getComponent(MainActivityComponent.class).inject(this);
+    getComponent(NowPlayingComponent.class).inject(this);
   }
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-
-    View view = inflater.inflate(R.layout.featured_frag, container, false);
+    View view = inflater.inflate(R.layout.now_playing_list_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
+
+    adapter.setItemClickListener(movieModel -> presenter.onMovieClicked(movieModel));
+
+    recyclerView.setLayoutManager(new NowPlayingListLayoutManager(context()));
+    recyclerView.setAdapter(adapter);
 
     return view;
   }
@@ -58,13 +54,8 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
     presenter.setView(this);
 
     if (null == savedInstanceState) {
-      loadFeaturedShow();
+      loadMovies();
     }
-  }
-
-  @Override public void onDestroyView() {
-    super.onDestroyView();
-    unbinder.unbind();
   }
 
   @Override public void onResume() {
@@ -77,6 +68,11 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
     presenter.pause();
   }
 
+  @Override public void onDestroyView() {
+    super.onDestroyView();
+    unbinder.unbind();
+  }
+
   @Override public void onDestroy() {
     super.onDestroy();
     presenter.destroy();
@@ -85,8 +81,8 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
   @Override public void onAttach(Context context) {
     super.onAttach(context);
 
-    if (context instanceof FeaturedShowContract.Listener) {
-      listener = (FeaturedShowContract.Listener) context;
+    if (context instanceof NowPlayingListContract.Listener) {
+      listener = (NowPlayingListContract.Listener)  context;
     }
   }
 
@@ -95,19 +91,11 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
     listener = null;
   }
 
-  @Override public void renderFeaturedShow(MovieModel movieModel) {
-    if (null == movieModel) { return; }
-
-    String imageUrl = TmdImage.getImageUrl(movieModel.getBackdropPath(), 500);
-
-    Picasso.with(context()).load(imageUrl).into(featuredImage);
-
-    title.setText(movieModel.getTitle());
-
-    featuredImage.setOnClickListener(v -> presenter.onMovieClicked(movieModel));
+  @Override public void renderNowPlayingMovies(List<MovieModel> movieModelList) {
+    adapter.setMovieModelList(movieModelList);
   }
 
-  @Override public void viewFeaturedShow(MovieModel movieModel) {
+  @Override public void viewMovieDetail(MovieModel movieModel) {
     if (null != listener) {
       listener.onMovieClicked(movieModel);
     }
@@ -121,15 +109,13 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
 
   @Override public void hideRetry() { }
 
-  @Override public void showError(String message) {
-    showToastMessage(message);
-  }
+  @Override public void showError(String message) { }
 
   @Override public Context context() {
     return getActivity().getApplicationContext();
   }
 
-  private void loadFeaturedShow() {
+  private void loadMovies() {
     presenter.initialize();
   }
 }
