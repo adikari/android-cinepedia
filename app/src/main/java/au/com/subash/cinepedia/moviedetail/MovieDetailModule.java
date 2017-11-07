@@ -1,7 +1,7 @@
 package au.com.subash.cinepedia.moviedetail;
 
 import au.com.subash.cinepedia.casts.CastRepository;
-import au.com.subash.cinepedia.casts.GetTopBilledCasts;
+import au.com.subash.cinepedia.casts.topbilled.GetTopBilledCasts;
 import au.com.subash.cinepedia.core.di.PerActivity;
 import au.com.subash.cinepedia.core.executor.PostExecutionThread;
 import au.com.subash.cinepedia.core.executor.ThreadExecutor;

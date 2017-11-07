@@ -53,8 +53,6 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
     } else {
       movieId = savedInstanceState.getInt(INSTANCE_STATE_PARAM_MOVIE_ID);
     }
-
-    movieId = 550;
   }
 
   private void initializeInjector() {
