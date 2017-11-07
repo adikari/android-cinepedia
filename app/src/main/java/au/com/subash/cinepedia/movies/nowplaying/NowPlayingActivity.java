@@ -51,6 +51,6 @@ public class NowPlayingActivity extends BaseActivity implements HasComponent<Now
   }
 
   @Override public void onMovieClicked(MovieModel movieModel) {
-
+    navigator.navigateToMovieDetail(this, movieModel.getId());
   }
 }

@@ -48,10 +48,7 @@ public class NowPlayingMoviesAdapter extends RecyclerView.Adapter<NowPlayingMovi
 
     String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
 
-    Picasso
-        .with(context)
-        .load(imageUrl)
-        .into(holder.thumbnail);
+    Picasso.with(context).load(imageUrl).into(holder.thumbnail);
 
     holder.itemView.setOnClickListener(v -> {
       if (null != listener) {
