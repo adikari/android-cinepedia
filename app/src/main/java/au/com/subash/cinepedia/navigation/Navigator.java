@@ -3,6 +3,7 @@ package au.com.subash.cinepedia.navigation;
 import android.content.Context;
 import android.content.Intent;
 import au.com.subash.cinepedia.moviedetail.MovieDetailActivity;
+import au.com.subash.cinepedia.movies.MovieModel;
 import au.com.subash.cinepedia.movies.nowplaying.NowPlayingActivity;
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -15,6 +16,19 @@ public class Navigator {
 
   @Inject
   public Navigator() { }
+
+  public void shareMovieDetail(Context context) {
+    if (null != context) {
+      Intent intent = new Intent();
+
+      intent.setAction(Intent.ACTION_SEND);
+      intent.putExtra(Intent.EXTRA_TEXT, "Sharing movie details.");
+      intent.setType("text/plain");
+
+
+      context.startActivity(Intent.createChooser(intent, "Share movie"));
+    }
+  }
 
   public void navigateToNowPlayingList(Context context) {
     if (null != context) {

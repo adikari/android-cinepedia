@@ -3,6 +3,8 @@ package au.com.subash.cinepedia.moviedetail;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.casts.CastModel;
@@ -43,6 +45,24 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
     }
 
     super.onSaveInstanceState(outState);
+  }
+
+  @Override public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.movie_detail_menu, menu);
+    return true;
+  }
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case R.id.menu_share:
+        navigator.shareMovieDetail(this);
+        return true;
+      case R.id.main_menu_more:
+        navigator.navigateToNowPlayingList(this);
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
   }
 
   private void initializeActivity(Bundle savedInstanceState) {

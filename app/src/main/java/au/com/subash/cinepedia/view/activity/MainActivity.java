@@ -49,6 +49,7 @@ public class MainActivity extends BaseActivity implements HasComponent<MainActiv
     switch (item.getItemId()) {
       case R.id.main_menu_more:
         navigator.navigateToNowPlayingList(this);
+        return true;
       default:
         return super.onOptionsItemSelected(item);
     }
