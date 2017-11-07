@@ -12,6 +12,7 @@ public class MovieModel {
   private double popularity;
   private double rating;
   private String releaseDate;
+  private String backdropPath;
 
   public MovieModel(int id) {
     this.id = id;
@@ -75,5 +76,13 @@ public class MovieModel {
 
   public void setReleaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
+  }
+
+  public String getBackdropPath() {
+    return backdropPath;
+  }
+
+  public void setBackdropPath(String backdropPath) {
+    this.backdropPath = backdropPath;
   }
 }

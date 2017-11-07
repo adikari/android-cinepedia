@@ -34,6 +34,7 @@ public class MovieModelDataMapper {
       movieModel.setPopularity(movie.getPopularity());
       movieModel.setRating(movie.getRating());
       movieModel.setReleaseDate(movie.getReleaseDate());
+      movieModel.setBackdropPath(movie.getBackdropPath());
     }
 
     return movieModel;

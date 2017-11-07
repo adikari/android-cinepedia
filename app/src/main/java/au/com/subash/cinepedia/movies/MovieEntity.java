@@ -31,6 +31,9 @@ public class MovieEntity {
   @SerializedName("release_date")
   private String releaseDate;
 
+  @SerializedName("backdrop_path")
+  private String backdropPath;
+
   MovieEntity() { }
 
   public int getId() {
@@ -73,7 +76,7 @@ public class MovieEntity {
     return popularity;
   }
 
-  public void setPopularity(int popularity) {
+  public void setPopularity(double popularity) {
     this.popularity = popularity;
   }
 
@@ -91,5 +94,13 @@ public class MovieEntity {
 
   public void setReleaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
+  }
+
+  public String getBackdropPath() {
+    return backdropPath;
+  }
+
+  public void setBackdropPath(String backdropPath) {
+    this.backdropPath = backdropPath;
   }
 }

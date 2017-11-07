@@ -13,6 +13,7 @@ public class Movie {
   private double popularity;
   private double rating;
   private String releaseDate;
+  private String backdropPath;
 
   public Movie(int id) {
     this.id = id;
@@ -76,5 +77,13 @@ public class Movie {
 
   public void setReleaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
+  }
+
+  public String getBackdropPath() {
+    return backdropPath;
+  }
+
+  public void setBackdropPath(String backdropPath) {
+    this.backdropPath = backdropPath;
   }
 }

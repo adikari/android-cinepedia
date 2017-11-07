@@ -98,7 +98,7 @@ public class FeaturedShowFragment extends BaseFragment implements FeaturedShowCo
   @Override public void renderFeaturedShow(MovieModel movieModel) {
     if (null == movieModel) { return; }
 
-    String imageUrl = TmdImage.getImageUrl(movieModel.getImageUrl(), 185);
+    String imageUrl = TmdImage.getImageUrl(movieModel.getBackdropPath(), 500);
 
     Picasso.with(context())
         .load(imageUrl)

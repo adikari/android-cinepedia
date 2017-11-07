@@ -33,6 +33,7 @@ class MovieEntityDataMapper {
       movie.setPopularity(movieEntity.getPopularity());
       movie.setRating(movieEntity.getRating());
       movie.setReleaseDate(movieEntity.getReleaseDate());
+      movie.setBackdropPath(movieEntity.getBackdropPath());
     }
 
     return movie;
