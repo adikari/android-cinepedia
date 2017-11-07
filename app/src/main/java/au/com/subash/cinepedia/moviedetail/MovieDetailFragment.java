@@ -20,9 +20,13 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
 
   @Inject MovieDetailPresenter presenter;
 
-  @BindView(R.id.tv_movie_detail_title) TextView tvTitle;
-  @BindView(R.id.iv_movie_detail_image) ImageView ivImage;
+  @BindView(R.id.tv_movie_detail_title) TextView title;
+  @BindView(R.id.iv_movie_detail_image) ImageView backdropImage;
   @BindView(R.id.tv_movie_detail_overview) TextView tvOverview;
+  @BindView(R.id.tv_movie_release_date) TextView releaseDate;
+  @BindView(R.id.tv_movie_runtime) TextView runtime;
+  @BindView(R.id.tv_movie_status) TextView status;
+  @BindView(R.id.tv_movie_rating) TextView rating;
 
   private Unbinder unbinder;
 
@@ -93,10 +97,14 @@ public class MovieDetailFragment extends BaseFragment implements MovieDetailCont
 
     String imageUrl = TmdImage.getImageUrl(movieDetailModel.getBackdropPath(), 500);
 
-    Picasso.with(context()).load(imageUrl).into(ivImage);
+    Picasso.with(context()).load(imageUrl).into(backdropImage);
 
-    tvTitle.setText(movieDetailModel.getTitle());
+    title.setText(movieDetailModel.getTitle());
     tvOverview.setText(movieDetailModel.getOverview());
+    status.setText(movieDetailModel.getStatus());
+    rating.setText(String.valueOf(movieDetailModel.getRating()));
+    runtime.setText(movieDetailModel.getRuntime());
+    releaseDate.setText(movieDetailModel.getReleaseDate());
   }
 
   @Override public void showLoading() { }

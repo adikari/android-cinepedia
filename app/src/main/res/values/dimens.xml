@@ -32,4 +32,5 @@
   <dimen name="card_thumb_margin">10dp</dimen>
   <dimen name="top_billed_card_padding_bottom">30dp</dimen>
   <dimen name="top_billed_artist_textsize">20sp</dimen>
+  <dimen name="movie_detail_title_textsize">28sp</dimen>
 </resources>
