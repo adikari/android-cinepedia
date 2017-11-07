@@ -30,4 +30,6 @@
   <string name="activity_title_movie_detail">Movie Details</string>
   <string name="movie_thumbnail_description">Movie thumbnail</string>
   <string name="cardlist_frag_view_all">View all</string>
+  <string name="top_billed_cast_title">Top-Billed Cast</string>
+  <string name="top_billed_thumbnail_description">Top billed artist thumbnail</string>
 </resources>

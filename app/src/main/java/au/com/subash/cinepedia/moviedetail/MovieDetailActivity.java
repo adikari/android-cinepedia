@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import au.com.subash.cinepedia.R;
 import au.com.subash.cinepedia.casts.CastModel;
-import au.com.subash.cinepedia.casts.CastScrollContract;
-import au.com.subash.cinepedia.casts.CastScrollFragment;
+import au.com.subash.cinepedia.casts.topbilled.TopBilledContract;
+import au.com.subash.cinepedia.casts.topbilled.TopBilledFragment;
 import au.com.subash.cinepedia.core.di.HasComponent;
 import au.com.subash.cinepedia.view.activity.BaseActivity;
 import javax.inject.Inject;
 
 public class MovieDetailActivity extends BaseActivity implements HasComponent<MovieDetailComponent>,
-  CastScrollContract.Listener {
+  TopBilledContract.Listener {
 
   @Inject MovieDetailComponent movieDetailComponent;
 
@@ -49,7 +49,7 @@ public class MovieDetailActivity extends BaseActivity implements HasComponent<Mo
       movieId = getIntent().getIntExtra(INTENT_EXTRA_PARAM_MOVIE_ID, -1);
 
       addFragment(R.id.fl_movie_detail, MovieDetailFragment.getInstance());
-      addFragment(R.id.fl_cast_scroll, CastScrollFragment.getInstance());
+      addFragment(R.id.fl_cast_scroll, TopBilledFragment.getInstance());
     } else {
       movieId = savedInstanceState.getInt(INSTANCE_STATE_PARAM_MOVIE_ID);
     }

@@ -1,5 +1,8 @@
-package au.com.subash.cinepedia.casts;
+package au.com.subash.cinepedia.casts.topbilled;
 
+import au.com.subash.cinepedia.casts.Cast;
+import au.com.subash.cinepedia.casts.CastModel;
+import au.com.subash.cinepedia.casts.CastModelDataMapper;
 import au.com.subash.cinepedia.exception.ErrorBundle;
 import au.com.subash.cinepedia.exception.ErrorMessageFactory;
 import au.com.subash.cinepedia.interactor.DefaultSubscriber;
@@ -8,20 +11,19 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class CastScrollPresenter implements CastScrollContract.Presenter {
+public class TopBilledPresenter implements TopBilledContract.Presenter {
 
   private final UseCase getCasts;
   private final CastModelDataMapper mapper;
 
-  private CastScrollContract.View view;
+  private TopBilledContract.View view;
 
-  @Inject
-  CastScrollPresenter(@Named("getCasts") UseCase getCasts, CastModelDataMapper mapper) {
+  @Inject TopBilledPresenter(@Named("getCasts") UseCase getCasts, CastModelDataMapper mapper) {
     this.getCasts = getCasts;
     this.mapper = mapper;
   }
 
-  void setView(CastScrollContract.View view) {
+  void setView(TopBilledContract.View view) {
     this.view = view;
   }
 
@@ -72,21 +74,21 @@ public class CastScrollPresenter implements CastScrollContract.Presenter {
 
   private class GetCastSubscriber extends DefaultSubscriber<List<Cast>> {
     @Override public void onStart() {
-      CastScrollPresenter.this.hideViewRetry();
-      CastScrollPresenter.this.showViewLoading();
+      TopBilledPresenter.this.hideViewRetry();
+      TopBilledPresenter.this.showViewLoading();
     }
 
     @Override public void onError(Throwable e) {
-      CastScrollPresenter.this.hideViewLoading();
-      CastScrollPresenter.this.showViewRetry();
+      TopBilledPresenter.this.hideViewLoading();
+      TopBilledPresenter.this.showViewRetry();
     }
 
     @Override public void onComplete() {
-      CastScrollPresenter.this.hideViewLoading();
+      TopBilledPresenter.this.hideViewLoading();
     }
 
     @Override public void onNext(List<Cast> casts) {
-      CastScrollPresenter.this.showCastsInView(casts);
+      TopBilledPresenter.this.showCastsInView(casts);
     }
   }
 }

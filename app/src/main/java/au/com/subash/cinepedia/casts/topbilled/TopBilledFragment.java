@@ -1,4 +1,4 @@
-package au.com.subash.cinepedia.casts;
+package au.com.subash.cinepedia.casts.topbilled;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import au.com.subash.cinepedia.R;
+import au.com.subash.cinepedia.casts.CastModel;
 import au.com.subash.cinepedia.moviedetail.MovieDetailComponent;
 import au.com.subash.cinepedia.view.fragment.BaseFragment;
 import butterknife.ButterKnife;
@@ -13,24 +14,24 @@ import butterknife.Unbinder;
 import java.util.List;
 import javax.inject.Inject;
 
-public class CastScrollFragment extends BaseFragment implements CastScrollContract.View {
+public class TopBilledFragment extends BaseFragment implements TopBilledContract.View {
 
-  @Inject CastScrollPresenter presenter;
+  @Inject TopBilledPresenter presenter;
 
-  private CastScrollContract.Listener listener;
+  private TopBilledContract.Listener listener;
   private Unbinder unbinder;
 
-  public static CastScrollFragment getInstance() {
-    return new CastScrollFragment();
+  public static TopBilledFragment getInstance() {
+    return new TopBilledFragment();
   }
 
   @Override public void onAttach(Context context) {
     super.onAttach(context);
 
-    if (context instanceof CastScrollContract.Listener) {
-      listener = (CastScrollContract.Listener) context;
+    if (context instanceof TopBilledContract.Listener) {
+      listener = (TopBilledContract.Listener) context;
     } else {
-      throw new ClassCastException("Must implement CastScrollContract.Listener");
+      throw new ClassCastException("Must implement TopBilledContract.Listener");
     }
   }
 
@@ -42,7 +43,7 @@ public class CastScrollFragment extends BaseFragment implements CastScrollContra
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.cast_scroll_frag, container, false);
+    View view = inflater.inflate(R.layout.top_billed_cast_frag, container, false);
 
     unbinder = ButterKnife.bind(this, view);
 
